@@ -26,6 +26,7 @@ const loginHandler = (e, location, navigate, loginState, authDispatch) => {
 				firstName: response.data.foundUser.firstName,
 				lastName: response.data.foundUser.lastName,
 				email: response.data.foundUser.email,
+				avatar: response.data.foundUser.avatar,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
@@ -68,6 +69,7 @@ const registerHandler = (
 				firstName: response.data.foundUser.firstName,
 				lastName: response.data.foundUser.lastName,
 				email: response.data.foundUser.email,
+				avatar: response.data.foundUser.avatar,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
