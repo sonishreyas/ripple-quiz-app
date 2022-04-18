@@ -2,18 +2,17 @@ import { v4 as uuid } from "uuid";
 export const avatars = [
 	{
 		_id: uuid(),
-		avatarURL: "#279AF6",
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/1.jpg",
 	},
 	{
 		_id: uuid(),
-		avatarURL: "#D24B73",
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/2.jpg",
 	},
 	{
 		_id: uuid(),
-		avatarURL: "#F19E39",
-	},
-	{
-		_id: uuid(),
-		avatarURL: "#4FCF94",
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/3.jpg",
 	},
 ];

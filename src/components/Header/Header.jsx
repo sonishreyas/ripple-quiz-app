@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../../context";
+import { useAuth, useTheme } from "../../context";
 
 const Header = () => {
 	const { themeIcon, handleSetTheme } = useTheme();
+	const { authState } = useAuth();
 	return (
 		<header className="header header-shadow flex-row justify-content-space-between align-center p-7">
 			<div className="brand-info flex-row justify-content-center align-center flex-gap-1 m-5">
@@ -19,17 +20,42 @@ const Header = () => {
 				</Link>
 			</div>
 			<div className="social-icon-container flex-row align-center flex-gap-2">
-				<ul className="no-list spaced-list flex-row align-center flex-gap-2 mx-5">
-					<li className="header-nav-icons h-auto pr-2">
-						<span className="badge-icon">
-							<i
-								className={`fas fa-${themeIcon} theme-icon badge-icon`}
-								aria-label="dark/light theme icon"
-								onClick={handleSetTheme}
-							></i>
-						</span>
-					</li>
-				</ul>
+				<form className="input-form flex-column flex-gap-1 flex-grow-1 flex-wrap h-auto w-100 search-bar-long">
+					<section className="input-container input-with-icon flex-column b-radius-2 m-5">
+						<input
+							id="search"
+							className="textbox-content p-5"
+							type="text"
+							name="search"
+							placeholder="Search"
+							aria-label="Search Products here"
+						/>
+						<i className="fas fa-search search-icon"></i>
+					</section>
+				</form>
+				<i className="fa-solid fa-magnifying-glass social search-bar-small"></i>
+				{authState.token ? (
+					<Link to={"/profile"} className="no-link">
+						<img
+							src={authState.avatar}
+							alt="User Profile Picture"
+							className="avatar b-radius-circle m cursor-pointer"
+							aria-label="User Profile Avatar"
+						/>
+					</Link>
+				) : (
+					<Link
+						to={"/profile"}
+						className="no-link-decoration primary-btn p-5 m-5 b-radius-2 icon-text-btn "
+					>
+						Login
+					</Link>
+				)}
+				<i
+					className={`fas fa-${themeIcon} theme-icon badge-icon`}
+					aria-label="dark/light theme icon"
+					onClick={handleSetTheme}
+				></i>
 			</div>
 		</header>
 	);

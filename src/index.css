@@ -1,3 +1,9 @@
 .horizontal-tabs-content {
 	display: block;
 }
+.vertical-tabs-content {
+	display: block;
+}
+.primary-btn {
+	color: var(--tertiary-color);
+}

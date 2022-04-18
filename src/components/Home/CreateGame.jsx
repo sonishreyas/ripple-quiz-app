@@ -7,7 +7,7 @@ const CreateGame = () => {
 				You need an account to create quiz
 			</sub>
 			<Link
-				to={"/auth"}
+				to={"/quizzes"}
 				className="no-link-decoration primary-btn p-5 b-radius-2 m-2 text-bold w-100 h-auto text-tertiary-color"
 			>
 				Login/Register
