@@ -10,7 +10,14 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/auth" element={<Authentication />} />
-				<Route path="/quizzes" element={<QuizCategories />} />
+				<Route
+					path="/quizzes"
+					element={
+						<RequireAuth>
+							<QuizCategories />
+						</RequireAuth>
+					}
+				/>
 				<Route
 					path="/profile"
 					element={

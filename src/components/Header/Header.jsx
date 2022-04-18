@@ -20,21 +20,23 @@ const Header = () => {
 				</Link>
 			</div>
 			<div className="social-icon-container flex-row align-center flex-gap-2">
-				<form className="input-form flex-column flex-gap-1 flex-grow-1 flex-wrap h-auto w-100 search-bar-long">
-					<section className="input-container input-with-icon flex-column b-radius-2 m-5">
-						<input
-							id="search"
-							className="textbox-content p-5"
-							type="text"
-							name="search"
-							placeholder="Search"
-							aria-label="Search Products here"
-						/>
-						<i className="fas fa-search search-icon"></i>
-					</section>
-				</form>
+				{authState.token && (
+					<form className="input-form flex-column flex-gap-1 flex-grow-1 flex-wrap h-auto w-100 search-bar-long">
+						<section className="input-container input-with-icon flex-column b-radius-2 m-5">
+							<input
+								id="search"
+								className="textbox-content p-5"
+								type="text"
+								name="search"
+								placeholder="Search"
+								aria-label="Search Products here"
+							/>
+							<i className="fas fa-search search-icon"></i>
+						</section>
+					</form>
+				)}
 				<i className="fa-solid fa-magnifying-glass social search-bar-small"></i>
-				{authState.token ? (
+				{authState.token && (
 					<Link to={"/profile"} className="no-link">
 						<img
 							src={authState.avatar}
@@ -42,13 +44,6 @@ const Header = () => {
 							className="avatar b-radius-circle m cursor-pointer"
 							aria-label="User Profile Avatar"
 						/>
-					</Link>
-				) : (
-					<Link
-						to={"/profile"}
-						className="no-link-decoration primary-btn p-5 m-5 b-radius-2 icon-text-btn "
-					>
-						Login
 					</Link>
 				)}
 				<i

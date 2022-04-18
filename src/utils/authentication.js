@@ -59,23 +59,26 @@ const registerHandler = (
 		lastName: registerState.lastName,
 		email: registerState.email,
 		password: registerState.password,
+		avatar: registerState.avatar,
 	};
 	(async () => {
 		try {
 			const response = await axios.post(`/api/auth/signup`, registerInfo);
+			console.log(response);
+
 			// saving the encodedToken in the localStorage
 			const user = {
 				token: response.data.encodedToken,
-				firstName: response.data.foundUser.firstName,
-				lastName: response.data.foundUser.lastName,
-				email: response.data.foundUser.email,
-				avatar: response.data.foundUser.avatar,
+				firstName: response.data.createdUser.firstName,
+				lastName: response.data.createdUser.lastName,
+				email: response.data.createdUser.email,
+				avatar: response.data.createdUser.avatar,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
-				payload: JSON.stringify(user),
+				payload: user,
 			});
-			localStorage.setItem("user", user);
+			localStorage.setItem("user", JSON.stringify(user));
 			navigate("/quizzes");
 		} catch (error) {
 			console.log(error);
