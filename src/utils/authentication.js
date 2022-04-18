@@ -33,7 +33,7 @@ const loginHandler = (e, location, navigate, loginState, authDispatch) => {
 				payload: user,
 			});
 			localStorage.setItem("user", JSON.stringify(user));
-			navigate("/quizzes");
+			navigate(location?.state?.from?.pathname);
 		} catch (error) {
 			console.log(error);
 		}
@@ -79,7 +79,7 @@ const registerHandler = (
 				payload: user,
 			});
 			localStorage.setItem("user", JSON.stringify(user));
-			navigate("/quizzes");
+			navigate(location?.state?.from?.pathname);
 		} catch (error) {
 			console.log(error);
 		}
