@@ -7,3 +7,14 @@
 .primary-btn {
 	color: var(--tertiary-color);
 }
+
+.filters {
+	position: fixed;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.avatar-selected {
+	border: 0.2rem solid var(--cta-color);
+	border-radius: var(--br-circle);
+}

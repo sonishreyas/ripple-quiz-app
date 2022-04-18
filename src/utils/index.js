@@ -5,6 +5,7 @@ export {
 	setValueHandler,
 	setTestHandler,
 	setFocusHandler,
+	updateUserHandler,
 } from "./authentication";
 export {
 	removeFromArray,

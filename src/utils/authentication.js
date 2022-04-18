@@ -83,6 +83,43 @@ const registerHandler = (
 	})();
 };
 
+/**
+ * Remove data from habits
+ * @param element
+ * @param {string} videoId videoId to remove from habits
+ * @param {string} token encodedToken of user
+ * @param {function} habitsDispatch Reducer function
+ */
+const updateUserHandler = (element, userData, authDispatch, authState) => {
+	element.preventDefault();
+	(async () => {
+		try {
+			const response = await axios.post(
+				`/api/user`,
+				{ userData: userData },
+				{
+					headers: {
+						Accept: "*/*",
+						authorization: JSON.parse(localStorage.getItem("user"))?.token,
+					},
+				}
+			);
+			localStorage.setItem(
+				"user",
+				JSON.stringify({ ...authState, ...userData })
+			);
+			authDispatch({
+				type: "UPDATE_USER",
+				payload: {
+					...userData,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	})();
+};
+
 const setValueHandler = (e, field, type, loginDispatch) => {
 	const fieldValue = { type: type, payload: {} };
 	fieldValue.payload[field] = e.target.value;
@@ -106,4 +143,5 @@ export {
 	setValueHandler,
 	setTestHandler,
 	setFocusHandler,
+	updateUserHandler,
 };
