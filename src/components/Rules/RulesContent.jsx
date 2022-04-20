@@ -1,28 +1,30 @@
 import { Link, useParams } from "react-router-dom";
+import { useQuiz } from "../../context";
 
 const RulesContent = () => {
 	const { quizId } = useParams();
+	const { rulesData } = useQuiz();
 	return (
 		<main className="main">
-			<section className="text-center p-5 my-5">
-				<h3 className="p-2 my-2 mx-0 text-center">Rules</h3>
+			<section className="p-5 my-5 flex-column justify-content-center align-center">
+				<h1 className="p-2 my-2 mx-0 text-center text-bold">Rules</h1>
 				<ol>
-					<li className="p-5 m-5">
-						A team gets 30 seconds to answer the question intended for it, and
-						is awarded 20 points for answering it.
-					</li>
-					<li className="p-5 m-5">
-						A team gets 30 seconds to answer the question intended for it, and
-						is awarded 20 points for answering it.
-					</li>
-					<li className="p-5 m-5">
-						A team gets 30 seconds to answer the question intended for it, and
-						is awarded 20 points for answering it.
-					</li>
-					<li className="p-5 m-5 no-list">
+					{rulesData.length &&
+						rulesData.map(({ _id, rule }) => (
+							<li className="p-5 m-5" key={_id}>
+								{rule}
+							</li>
+						))}
+					<li className="no-list flex-row justify-content-center align-center flex-gap-1 flex-wrap w-100 h-auto my-10 py-10">
+						<Link
+							to={`/quizzes`}
+							className="no-link-decoration rules-modal-btn outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow-1"
+						>
+							Back
+						</Link>
 						<Link
 							to={`/quiz/${quizId}`}
-							className="no-link-decoration rules-modal-btn primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto"
+							className="no-link-decoration rules-modal-btn primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow-1"
 						>
 							Accept
 						</Link>
