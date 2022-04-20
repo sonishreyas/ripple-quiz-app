@@ -45,10 +45,7 @@ export function makeServer({ environment = "development" } = {}) {
 		seeds(server) {
 			// disballing console logs from Mirage
 			server.logging = false;
-			quizzes.forEach((item) => {
-				server.create("quiz", item);
-				// console.log(item);
-			});
+			quizzes.forEach((item) => server.create("quiz", item));
 			avatars.forEach((item) => server.create("avatar", { ...item }));
 			rules.forEach((item) => server.create("rule", { ...item }));
 

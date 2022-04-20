@@ -65,7 +65,6 @@ const registerHandler = (
 	(async () => {
 		try {
 			const response = await axios.post(`/api/auth/signup`, registerInfo);
-			console.log(response);
 
 			// saving the encodedToken in the localStorage
 			const user = {
