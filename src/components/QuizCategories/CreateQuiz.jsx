@@ -1,21 +1,26 @@
 import { useAuth, useQuiz } from "../../context";
 import { Link } from "react-router-dom";
+import { removeQuizHandler } from "../../utils";
 const CreateQuiz = () => {
-	const { quizData } = useQuiz();
+	const { quizState, quizDispatch } = useQuiz();
 	const { authState } = useAuth();
-	const myQuizData = quizData.filter(
+	const myQuizData = quizState.quizzes.filter(
 		(item) => item.createdBy === authState._id
 	);
+	const handleDeleteQuiz = (e, _id) => removeQuizHandler(e, _id, quizDispatch);
 	return (
 		<div className="m-5 p-5 ">
 			<section className="quiz-container flex-row justify-content-space-between align-center p-7 w-100 flex-wrap">
 				<h2 className="text-bold">My Quiz</h2>
-				<button className="outline-btn p-5 b-radius-2 mx-5 my-0 text-bold icon-text-btn flex-row justify-content-center align-center flex-gap-1 address-btn">
+				<Link
+					to="/quiz/add"
+					className="no-link-decoration outline-btn p-5 b-radius-2 mx-5 my-0 text-bold icon-text-btn flex-row justify-content-center align-center flex-gap-1 address-btn"
+				>
 					<span>
 						<i className="fas fa-plus"></i>
 					</span>
 					<p className="btn-text">Add new quiz</p>
-				</button>
+				</Link>
 			</section>
 			<section className="flex-row flex-wrap justify-align-center align-center flex-gap-2">
 				{myQuizData.length ? (
@@ -44,7 +49,10 @@ const CreateQuiz = () => {
 								>
 									Play
 								</Link>
-								<button className="outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 my-5 flex-grow w-100 h-auto">
+								<button
+									className="outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 my-5 flex-grow w-100 h-auto"
+									onClick={(e) => handleDeleteQuiz(e, _id)}
+								>
 									Delete Quiz
 								</button>
 							</section>
@@ -52,7 +60,7 @@ const CreateQuiz = () => {
 						</article>
 					))
 				) : (
-					<h3> You can add your own Quiz... </h3>
+					<h3 className="p-5 m-5 text-center">You can add your own Quiz.</h3>
 				)}
 			</section>
 		</div>

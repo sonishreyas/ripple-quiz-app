@@ -1,14 +1,13 @@
-import { useAuth, useQuiz } from "../../context";
+import { useQuiz } from "../../context";
 import { Link } from "react-router-dom";
 const Quizzes = () => {
-	const { categoriesData, quizData } = useQuiz();
-	const { authState } = useAuth();
+	const { categoriesData, quizState } = useQuiz();
 	const getQuizDataFromCategory = (categoryName) =>
-		quizData.filter((item) => item.catergoryName === categoryName);
+		quizState.quizzes.filter((item) => item.catergoryName === categoryName);
 	return (
 		<div className="m-5 p-5">
 			{categoriesData.length &&
-				quizData.length &&
+				quizState.quizzes.length &&
 				categoriesData.map(({ _id, categoryName }) => {
 					return (
 						<section key={_id}>

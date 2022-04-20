@@ -1,6 +1,13 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import "./App.css";
-import { Home, Authentication, QuizCategories, Profile, Rules } from "./pages";
+import {
+	Home,
+	Authentication,
+	QuizCategories,
+	Profile,
+	Rules,
+	AddQuiz,
+} from "./pages";
 import { Header, Footer } from "./components";
 import { RequireAuth } from "./utils";
 function App() {
@@ -23,6 +30,14 @@ function App() {
 					element={
 						<RequireAuth>
 							<Profile />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/quiz/add"
+					element={
+						<RequireAuth>
+							<AddQuiz />
 						</RequireAuth>
 					}
 				/>

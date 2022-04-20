@@ -22,3 +22,8 @@ export {
 	getCountValue,
 	trimData,
 } from "./helpers";
+export {
+	addNewQuizHandler,
+	getQuizDataHandler,
+	removeQuizHandler,
+} from "./quiz-management";
