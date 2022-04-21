@@ -11,10 +11,10 @@ const questionReducer = (questionState, { type, payload }) => {
 				...questionState,
 				quizId: payload.quizId,
 			};
-		case "REMOVE_question":
+		case "SELECT_NEW_ANSWER":
 			return {
 				...questionState,
-				questionzes: [...payload.questionzes],
+				questions: { ...payload.questions },
 			};
 		case "GET_question":
 			return {

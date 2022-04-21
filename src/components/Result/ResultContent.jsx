@@ -1,0 +1,55 @@
+import { Link } from "react-router-dom";
+import { useQuestion, useQuiz } from "../../context";
+const ResultContent = () => {
+	const { questionState } = useQuestion();
+	const { quizState } = useQuiz();
+	const quizData = quizState.quizzes.length
+		? quizState.quizzes.filter((item) => item._id === questionState.quizId)[0]
+		: {};
+	return (
+		<main className="main">
+			<section className="flex-column flex-gap-1 w-100 h-auto">
+				<h2 className="card-title text-bold p-5 my-2 text-cta-color text-center">
+					Result
+				</h2>
+				<section className="flex-row justify-content-center flex-gap-2">
+					<h4 className="p-2">
+						<i className="text-bold">Final Score:</i> {questionState.score}/
+						{questionState.questions.length * 10}
+					</h4>
+				</section>
+				{quizData &&
+					quizData.mcqs.map(({ _id, question, options, answer }) => (
+						<section className="p-5 m-5" key={_id}>
+							<p className="text-bold p-2">{question}</p>
+							<ul className="stacked-list flex-column flex-gap-1 align-center w-100 h-auto">
+								{options.map((item, index) => (
+									<li className="no-list w-100 h-auto" key={index}>
+										<article
+											className={`basic-card flex-row justify-content-center align-center flex-gap-1 flex-wrap p-5 b-radius-3 my-2 cursor-pointer w-100 h-auto ${
+												questionState.questions[_id] === item
+													? item === answer
+														? "correct-answer"
+														: "wrong-answer"
+													: ""
+											}`}
+										>
+											<h3>{item}</h3>
+										</article>
+									</li>
+								))}
+							</ul>
+						</section>
+					))}
+				<section className="quiz-container"></section>
+				<Link
+					to="/quizzes"
+					className="no-link-decoration outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto my-10"
+				>
+					Play Another Quiz
+				</Link>
+			</section>
+		</main>
+	);
+};
+export { ResultContent };

@@ -52,3 +52,8 @@
 	background-color: var(--primary-color);
 	animation: 2s shine linear infinite alternate;
 }
+
+.selected-answer {
+	background: var(--tertiary-color);
+	color: var(--cta-color);
+}

@@ -6,3 +6,4 @@ export { ProfileContent } from "./Profile";
 export { QuizCategoriesContent } from "./QuizCategories";
 export { RulesContent } from "./Rules";
 export { QuizContent } from "./Quiz";
+export { ResultContent } from "./Result";

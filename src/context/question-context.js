@@ -2,13 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { questionReducer } from "../reducers";
 const defaultQuestionState = {
 	quizId: "",
-	questions: [
-		{
-			_id: "",
-			selectedAnswer: "",
-			correctAnswer: "",
-		},
-	],
+	questions: {},
 	score: 0,
 };
 const QuestionContext = createContext(defaultQuestionState);
