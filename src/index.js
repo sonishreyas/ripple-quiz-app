@@ -11,6 +11,7 @@ import {
 	AuthProvider,
 	ProfileProvider,
 	QuizProvider,
+	QuestionProvider,
 } from "./context";
 // Call make Server
 makeServer();
@@ -23,7 +24,9 @@ ReactDOM.render(
 						<AuthProvider>
 							<ProfileProvider>
 								<QuizProvider>
-									<App />
+									<QuestionProvider>
+										<App />
+									</QuestionProvider>
 								</QuizProvider>
 							</ProfileProvider>
 						</AuthProvider>

@@ -1,13 +1,16 @@
-import { useAuth, useQuiz } from "../../context";
+import { useAuth, useQuestion, useQuiz } from "../../context";
 import { Link } from "react-router-dom";
 import { removeQuizHandler } from "../../utils";
 const CreateQuiz = () => {
 	const { quizState, quizDispatch } = useQuiz();
+	const { questionDispatch } = useQuestion();
 	const { authState } = useAuth();
 	const myQuizData = quizState.quizzes.filter(
 		(item) => item.createdBy === authState._id
 	);
 	const handleDeleteQuiz = (e, _id) => removeQuizHandler(e, _id, quizDispatch);
+	const handleSetQuizId = (_id) =>
+		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
 	return (
 		<div className="m-5 p-5 ">
 			<section className="quiz-container flex-row justify-content-space-between align-center p-7 w-100 flex-wrap">
@@ -44,7 +47,8 @@ const CreateQuiz = () => {
 							</section>
 							<section className="flex-row flex-gap-1 justify-content-center align-center w-100">
 								<Link
-									to={`/rules/${_id}`}
+									to={`/rules`}
+									onClick={() => handleSetQuizId(_id)}
 									className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color"
 								>
 									Play

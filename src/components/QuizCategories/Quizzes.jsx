@@ -4,6 +4,8 @@ const Quizzes = () => {
 	const { categoriesData, quizState } = useQuiz();
 	const getQuizDataFromCategory = (categoryName) =>
 		quizState.quizzes.filter((item) => item.catergoryName === categoryName);
+	const handleSetQuizId = (_id) =>
+		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
 	return (
 		<div className="m-5 p-5">
 			{categoriesData.length &&
@@ -36,7 +38,8 @@ const Quizzes = () => {
 											</section>
 											<section className="flex-row flex-gap-1 justify-content-center align-center w-100">
 												<Link
-													to={`/rules/${_id}`}
+													to={`/rules`}
+													onClick={() => handleSetQuizId(_id)}
 													className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color"
 												>
 													Play

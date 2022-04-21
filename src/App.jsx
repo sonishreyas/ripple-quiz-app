@@ -7,6 +7,7 @@ import {
 	Profile,
 	Rules,
 	AddQuiz,
+	Quiz,
 } from "./pages";
 import { Header, Footer } from "./components";
 import { RequireAuth } from "./utils";
@@ -41,7 +42,8 @@ function App() {
 						</RequireAuth>
 					}
 				/>
-				<Route path="/rules/:quizId" element={<Rules />} />
+				<Route path="/rules" element={<Rules />} />
+				<Route path="/quiz/:quizId" element={<Quiz />} />
 			</Routes>
 			<Outlet />
 			<Footer />

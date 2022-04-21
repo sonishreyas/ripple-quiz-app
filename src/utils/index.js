@@ -12,7 +12,6 @@ export {
 	presentInWatchLater,
 	presentInArray,
 	presentObjInArray,
-	removeObjFromArray,
 	updateObjInArray,
 	updateAddressObjInArray,
 	getDataFromId,
