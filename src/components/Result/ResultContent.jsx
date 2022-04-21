@@ -15,7 +15,7 @@ const ResultContent = () => {
 				<section className="flex-row justify-content-center flex-gap-2">
 					<h4 className="p-2">
 						<i className="text-bold">Final Score:</i> {questionState.score}/
-						{questionState.questions.length * 10}
+						{quizData.mcqs.length * 10}
 					</h4>
 				</section>
 				{quizData &&
@@ -29,7 +29,7 @@ const ResultContent = () => {
 											className={`basic-card flex-row justify-content-center align-center flex-gap-1 flex-wrap p-5 b-radius-3 my-2 cursor-pointer w-100 h-auto ${
 												questionState.questions[_id] === item
 													? item === answer
-														? "correct-answer"
+														? "right-answer"
 														: "wrong-answer"
 													: ""
 											}`}

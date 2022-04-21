@@ -14,7 +14,7 @@ const questionReducer = (questionState, { type, payload }) => {
 		case "SELECT_NEW_ANSWER":
 			return {
 				...questionState,
-				questions: { ...payload.questions },
+				questions: { ...questionState.questions, ...payload.questions },
 			};
 		case "GET_question":
 			return {
