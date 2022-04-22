@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQuestion, useQuiz } from "../../context";
 const ResultContent = () => {
-	const { questionState } = useQuestion();
+	const { questionState, questionDispatch } = useQuestion();
 	const { quizState } = useQuiz();
 	const quizData = quizState.quizzes.length
 		? quizState.quizzes.filter((item) => item._id === questionState.quizId)[0]
 		: {};
+	const navigate = useNavigate();
+	const handleRedirect = () => {
+		questionDispatch({ type: "RESET" });
+		navigate("/quizzes");
+	};
 	return (
 		<main className="main">
 			<section className="flex-column flex-gap-1 w-100 h-auto">
@@ -42,12 +47,12 @@ const ResultContent = () => {
 						</section>
 					))}
 				<section className="quiz-container"></section>
-				<Link
-					to="/quizzes"
+				<button
 					className="no-link-decoration outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto my-10"
+					onClick={handleRedirect}
 				>
 					Play Another Quiz
-				</Link>
+				</button>
 			</section>
 		</main>
 	);

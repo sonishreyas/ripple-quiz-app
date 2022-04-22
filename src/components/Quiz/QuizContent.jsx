@@ -9,8 +9,20 @@ const QuizContent = () => {
 		? quizState.quizzes.filter((item) => item._id === questionState.quizId)[0]
 		: {};
 	const [questionIndex, setQuestionIndex] = useState(0);
-	const handleNextQuestion = () => setQuestionIndex(questionIndex + 1);
+	const handleNextQuestion = () => {
+		setQuestionIndex(questionIndex + 1);
+	};
+
 	const handleCalculateScore = () => {
+		let score = 0;
+		for (let i = 0; i <= questionIndex; i++) {
+			score +=
+				quizData["mcqs"][i]["answer"] ===
+				questionState.questions[quizData["mcqs"][i]["_id"]]
+					? 10
+					: 0;
+		}
+		questionDispatch({ type: "UPDATE_SCORE", payload: { score: score } });
 		navigate("/result");
 	};
 	const handleQuitQuiz = () => {
@@ -37,9 +49,6 @@ const QuizContent = () => {
 								>
 									Quit Quiz
 								</button>
-								{/* <h5 className="p-2">
-                    <i className="text-bold">Score:</i> -10
-                  </h5> */}
 							</section>
 							<p className="text-bold p-2">
 								{quizData.mcqs[questionIndex].question}

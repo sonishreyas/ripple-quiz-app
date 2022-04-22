@@ -16,28 +16,17 @@ const questionReducer = (questionState, { type, payload }) => {
 				...questionState,
 				questions: { ...questionState.questions, ...payload.questions },
 			};
-		case "GET_question":
+		case "UPDATE_SCORE":
 			return {
 				...questionState,
-				questionzes: [...payload.questionzes],
+				score: questionState.score + payload.score,
 			};
-		case "NEW_question":
-			return {
-				...questionState,
-				newquestion: { ...questionState.newquestion, ...payload.newquestion },
-			};
-		case "RESET_FORM":
-			return {
-				...questionState,
-				newquestion: {
-					title: "",
-				},
-			};
-
 		case "RESET":
 			return {
 				...questionState,
-				newquestion: {},
+				quizId: "",
+				questions: {},
+				score: 0,
 			};
 		default:
 			return questionState;
