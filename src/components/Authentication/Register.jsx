@@ -25,7 +25,6 @@ const Register = () => {
 		showConfirmPassword
 			? setShowConfirmPassword(false)
 			: setShowConfirmPassword(true);
-
 	return (
 		<form
 			onSubmit={(e) =>

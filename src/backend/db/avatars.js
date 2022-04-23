@@ -1,0 +1,18 @@
+import { v4 as uuid } from "uuid";
+export const avatars = [
+	{
+		_id: uuid(),
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/1.jpg",
+	},
+	{
+		_id: uuid(),
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/2.jpg",
+	},
+	{
+		_id: uuid(),
+		avatarURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/3.jpg",
+	},
+];

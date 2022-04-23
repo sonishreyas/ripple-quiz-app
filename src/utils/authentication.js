@@ -26,13 +26,14 @@ const loginHandler = (e, location, navigate, loginState, authDispatch) => {
 				firstName: response.data.foundUser.firstName,
 				lastName: response.data.foundUser.lastName,
 				email: response.data.foundUser.email,
+				avatar: response.data.foundUser.avatar,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
 				payload: user,
 			});
 			localStorage.setItem("user", JSON.stringify(user));
-			navigate("/quizzes");
+			navigate(location?.state?.from?.pathname);
 		} catch (error) {
 			console.log(error);
 		}
@@ -58,23 +59,64 @@ const registerHandler = (
 		lastName: registerState.lastName,
 		email: registerState.email,
 		password: registerState.password,
+		avatar: registerState.avatar,
 	};
 	(async () => {
 		try {
 			const response = await axios.post(`/api/auth/signup`, registerInfo);
+			console.log(response);
+
 			// saving the encodedToken in the localStorage
 			const user = {
 				token: response.data.encodedToken,
-				firstName: response.data.foundUser.firstName,
-				lastName: response.data.foundUser.lastName,
-				email: response.data.foundUser.email,
+				firstName: response.data.createdUser.firstName,
+				lastName: response.data.createdUser.lastName,
+				email: response.data.createdUser.email,
+				avatar: response.data.createdUser.avatar,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
-				payload: JSON.stringify(user),
+				payload: user,
 			});
-			localStorage.setItem("user", user);
-			navigate("/quizzes");
+			localStorage.setItem("user", JSON.stringify(user));
+			navigate(location?.state?.from?.pathname);
+		} catch (error) {
+			console.log(error);
+		}
+	})();
+};
+
+/**
+ * Remove data from habits
+ * @param element
+ * @param {string} videoId videoId to remove from habits
+ * @param {string} token encodedToken of user
+ * @param {function} habitsDispatch Reducer function
+ */
+const updateUserHandler = (element, userData, authDispatch, authState) => {
+	element.preventDefault();
+	(async () => {
+		try {
+			const response = await axios.post(
+				`/api/user`,
+				{ userData: userData },
+				{
+					headers: {
+						Accept: "*/*",
+						authorization: JSON.parse(localStorage.getItem("user"))?.token,
+					},
+				}
+			);
+			localStorage.setItem(
+				"user",
+				JSON.stringify({ ...authState, ...userData })
+			);
+			authDispatch({
+				type: "UPDATE_USER",
+				payload: {
+					...userData,
+				},
+			});
 		} catch (error) {
 			console.log(error);
 		}
@@ -104,4 +146,5 @@ export {
 	setValueHandler,
 	setTestHandler,
 	setFocusHandler,
+	updateUserHandler,
 };

@@ -6,6 +6,7 @@ const defaultAuthState = {
 	email: "",
 	firstName: "",
 	lastName: "",
+	avatar: "",
 };
 
 const AuthContext = createContext({ defaultAuthState });
