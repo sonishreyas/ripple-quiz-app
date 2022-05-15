@@ -14,13 +14,16 @@ import {
 	getSingleQuizHandler,
 	getSingleQuizQuestionAnswer,
 	postQuizResultHandler,
+	deleteQuizHandler,
 } from "./backend/controllers/QuizesController";
 import { editUserHandler } from "./backend/controllers/UserController";
 import { getAvatarsHandler } from "./backend/controllers/AvatarsController";
+import { getRulesHandler } from "./backend/controllers/RulesController";
 import { categories } from "./backend/db/categories";
 import { quizzes } from "./backend/db/quizzes";
 import { users } from "./backend/db/users";
 import { avatars } from "./backend/db/avatars";
+import { rules } from "./backend/db/rules";
 export function makeServer({ environment = "development" } = {}) {
 	return new Server({
 		serializers: {
@@ -35,17 +38,16 @@ export function makeServer({ environment = "development" } = {}) {
 			knowledgeLevel: Model,
 			quizTaken: Model,
 			avatars: Model,
+			rules: Model,
 		},
 
 		// Runs on the start of the server
 		seeds(server) {
 			// disballing console logs from Mirage
 			server.logging = false;
-			quizzes.forEach((item) => {
-				server.create("quiz", item);
-				// console.log(item);
-			});
+			quizzes.forEach((item) => server.create("quiz", item));
 			avatars.forEach((item) => server.create("avatar", { ...item }));
+			rules.forEach((item) => server.create("rule", { ...item }));
 
 			users.forEach((item) =>
 				server.create("user", {
@@ -70,6 +72,10 @@ export function makeServer({ environment = "development" } = {}) {
 
 			// avatars routes (public)
 			this.get("/avatars", getAvatarsHandler.bind(this));
+
+			// rules routes (public)
+			this.get("/rules", getRulesHandler.bind(this));
+
 			//check token (private)
 			this.post("/auth/checktoken", checkToken.bind(this));
 
@@ -88,6 +94,7 @@ export function makeServer({ environment = "development" } = {}) {
 			// quizes routes (private)
 			this.post("/quizzes", addQuizHandler.bind(this));
 			this.post("/quizzes/result", postQuizResultHandler.bind(this));
+			this.delete("/quiz/:quizId", deleteQuizHandler.bind(this));
 		},
 	});
 }

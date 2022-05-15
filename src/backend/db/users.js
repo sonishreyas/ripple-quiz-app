@@ -17,7 +17,7 @@ export const users = [
 		updatedAt: formatDate(),
 	},
 	{
-		_id: uuid(),
+		_id: "4ea212a8-c0d7-11ec-9d64-0242ac120002",
 		firstName: "test",
 		lastName: "test",
 		email: "test@gmail.com",

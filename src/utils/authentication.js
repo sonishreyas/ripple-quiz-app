@@ -27,6 +27,7 @@ const loginHandler = (e, location, navigate, loginState, authDispatch) => {
 				lastName: response.data.foundUser.lastName,
 				email: response.data.foundUser.email,
 				avatar: response.data.foundUser.avatar,
+				_id: response.data.foundUser._id,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
@@ -64,7 +65,6 @@ const registerHandler = (
 	(async () => {
 		try {
 			const response = await axios.post(`/api/auth/signup`, registerInfo);
-			console.log(response);
 
 			// saving the encodedToken in the localStorage
 			const user = {
@@ -73,6 +73,7 @@ const registerHandler = (
 				lastName: response.data.createdUser.lastName,
 				email: response.data.createdUser.email,
 				avatar: response.data.createdUser.avatar,
+				_id: response.data.createdUser._id,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
