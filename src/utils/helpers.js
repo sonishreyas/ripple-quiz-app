@@ -8,15 +8,6 @@ const removeFromArray = (arr, element) =>
 	arr.filter((item) => item._id !== element);
 
 /**
- * Removed element from array
- * @param {Array} arr Array from which we need to remove an element
- * @param {any} element Element that needs to be removed from arr
- * @returns Array with element removed
- */
-const removeObjFromArray = (arr, element) =>
-	arr.filter((item) => item.addressId !== element);
-
-/**
  * Check if its present in the array
  * @param {Array} arr
  * @param {any} element Element that needs to be searched from arr
@@ -84,9 +75,8 @@ const updateAddressObjInArray = (arr, element) =>
 	);
 
 const getDataFromId = (items, data) =>
-	items.map(({ _id, updatedAt }) => ({
+	items.map(({ _id }) => ({
 		...data.find((item) => item._id === _id),
-		updatedAt,
 	}));
 
 const getDataFromPlaylist = (arr, element) =>
@@ -114,7 +104,6 @@ export {
 	presentInWatchLater,
 	presentInArray,
 	presentObjInArray,
-	removeObjFromArray,
 	updateObjInArray,
 	updateAddressObjInArray,
 	getDataFromId,

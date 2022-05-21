@@ -1,9 +1,15 @@
-import { useQuiz } from "../../context";
-import { Link } from "react-router-dom";
+import { useQuiz, useQuestion } from "../../context";
+import { useNavigate } from "react-router-dom";
 const Quizzes = () => {
+	const navigate = useNavigate();
 	const { categoriesData, quizState } = useQuiz();
+	const { questionDispatch } = useQuestion();
 	const getQuizDataFromCategory = (categoryName) =>
 		quizState.quizzes.filter((item) => item.catergoryName === categoryName);
+	const handleSetQuizId = (_id) => {
+		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
+		navigate("/rules");
+	};
 	return (
 		<div className="m-5 p-5">
 			{categoriesData.length &&
@@ -35,12 +41,12 @@ const Quizzes = () => {
 												<p className="card-category my-2">{description}</p>
 											</section>
 											<section className="flex-row flex-gap-1 justify-content-center align-center w-100">
-												<Link
-													to={`/rules/${_id}`}
+												<button
+													onClick={() => handleSetQuizId(_id, title)}
 													className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color"
 												>
 													Play
-												</Link>
+												</button>
 											</section>
 											<i className="fas fa-share-alt b-radius-circle card-dismiss-btn m-3 p-1"></i>
 										</article>
