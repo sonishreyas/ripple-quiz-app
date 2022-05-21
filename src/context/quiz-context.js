@@ -4,6 +4,7 @@ import { quizReducer } from "../reducers";
 import { getQuizDataHandler } from "../utils";
 const defaultQuizState = {
 	quizzes: [],
+	filterQuizData: [],
 	newQuiz: {},
 };
 const QuizContext = createContext(defaultQuizState);

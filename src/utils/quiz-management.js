@@ -81,6 +81,7 @@ const getQuizDataHandler = (quizDispatch) => {
 				type: "GET_QUIZ",
 				payload: {
 					quizzes: response.data.quizes,
+					filterQuizData: response.data.quizes,
 				},
 			});
 		} catch (error) {

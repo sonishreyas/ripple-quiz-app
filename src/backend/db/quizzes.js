@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const quizzes = [
 	{
 		_id: "4ea20038-c0d7-11ec-9d64-0242ac120002",
-		title: "Game of Thrones",
+		title: "Big Bang Theory",
 		totalScore: 50,
 		description: "Take a quiz on the seven kingdom of westeros.",
 		imageURL:

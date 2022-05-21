@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
-import { useAuth, useTheme } from "../../context";
+import { useAuth, useQuiz, useTheme } from "../../context";
+import { useState, useEffect } from "react";
 
 const Header = () => {
 	const { themeIcon, handleSetTheme } = useTheme();
 	const { authState } = useAuth();
+	const [query, setQuery] = useState("");
+	const { quizState, quizDispatch } = useQuiz();
+	const handleSearch = (e) => {
+		setQuery(e.target.value);
+	};
+	useEffect(() => {
+		quizDispatch({
+			type: "FILTER_QUIZ_DATA",
+			payload: {
+				filterQuizData: query.length
+					? quizState.quizzes.filter(({ title }) =>
+							title.toLowerCase().includes(query.toLowerCase())
+					  )
+					: quizState.quizzes,
+			},
+		});
+	}, [query]);
 	return (
 		<header className="header header-shadow flex-row justify-content-space-between align-center p-7">
 			<div className="brand-info flex-row justify-content-center align-center flex-gap-1 m-5">
@@ -30,6 +48,8 @@ const Header = () => {
 								name="search"
 								placeholder="Search"
 								aria-label="Search Products here"
+								onChange={handleSearch}
+								value={query}
 							/>
 							<i className="fas fa-search search-icon"></i>
 						</section>

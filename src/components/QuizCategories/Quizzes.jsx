@@ -5,7 +5,9 @@ const Quizzes = () => {
 	const { categoriesData, quizState } = useQuiz();
 	const { questionDispatch } = useQuestion();
 	const getQuizDataFromCategory = (categoryName) =>
-		quizState.quizzes.filter((item) => item.catergoryName === categoryName);
+		quizState.filterQuizData.filter(
+			(item) => item.catergoryName === categoryName
+		);
 	const handleSetQuizId = (_id) => {
 		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
 		navigate("/rules");
@@ -13,7 +15,7 @@ const Quizzes = () => {
 	return (
 		<div className="m-5 p-5">
 			{categoriesData.length &&
-				quizState.quizzes.length &&
+				quizState.filterQuizData.length &&
 				categoriesData.map(({ _id, categoryName }) => {
 					return (
 						<section key={_id}>

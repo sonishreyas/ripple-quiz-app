@@ -20,6 +20,12 @@ const quizReducer = (quizState, { type, payload }) => {
 			return {
 				...quizState,
 				quizzes: [...payload.quizzes],
+				filterQuizData: [...payload.filterQuizData],
+			};
+		case "FILTER_QUIZ_DATA":
+			return {
+				...quizState,
+				filterQuizData: [...payload.filterQuizData],
 			};
 		case "NEW_QUIZ":
 			return {
