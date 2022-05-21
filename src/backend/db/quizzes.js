@@ -12,7 +12,7 @@ export const quizzes = [
 		totalScore: 50,
 		description: "Take a quiz on the seven kingdom of westeros.",
 		imageURL:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/quiz-category-page/src/backend/assets/images/bbt.png",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/images/bbt.png",
 		mcqs: [
 			{
 				_id: uuid(),

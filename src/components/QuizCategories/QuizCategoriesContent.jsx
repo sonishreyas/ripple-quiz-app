@@ -14,7 +14,6 @@ const QuizCategoriesContent = () => {
 	return (
 		<main className="main">
 			<section className="mx-10">
-				{!loader && <CreateQuiz />}
 				{!loader && <Quizzes />}
 				{loader && <CategoriesLoader />}
 			</section>

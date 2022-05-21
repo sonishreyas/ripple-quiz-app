@@ -48,7 +48,7 @@ const ResultContent = () => {
 					))}
 				<section className="quiz-container"></section>
 				<button
-					className="no-link-decoration outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto my-10"
+					className="no-link-decoration outline-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto my-10 cursor-pointer"
 					onClick={handleRedirect}
 				>
 					Play Another Quiz

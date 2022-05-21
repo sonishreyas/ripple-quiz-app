@@ -10,7 +10,7 @@ const Header = () => {
 				<section>
 					<i className="fas fa-bars header-nav-icon"></i>
 				</section>
-				<Link to={"/"} className="no-link header-brand">
+				<Link to={"/quizzes"} className="no-link header-brand">
 					<img
 						src="https://raw.githubusercontent.com/sonishreyas/rippleUI/dev/components/media/images/ripple-logo.png"
 						alt="Logo of ripple UI"

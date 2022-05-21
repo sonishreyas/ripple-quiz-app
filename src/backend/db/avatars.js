@@ -3,16 +3,16 @@ export const avatars = [
 	{
 		_id: uuid(),
 		avatarURL:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/1.jpg",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 	},
 	{
 		_id: uuid(),
 		avatarURL:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/2.jpg",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/2.jpg",
 	},
 	{
 		_id: uuid(),
 		avatarURL:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/3.jpg",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/3.jpg",
 	},
 ];

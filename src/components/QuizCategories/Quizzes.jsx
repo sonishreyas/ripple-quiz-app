@@ -43,12 +43,11 @@ const Quizzes = () => {
 											<section className="flex-row flex-gap-1 justify-content-center align-center w-100">
 												<button
 													onClick={() => handleSetQuizId(_id, title)}
-													className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color"
+													className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color cursor-pointer"
 												>
 													Play
 												</button>
 											</section>
-											<i className="fas fa-share-alt b-radius-circle card-dismiss-btn m-3 p-1"></i>
 										</article>
 									)
 								)}

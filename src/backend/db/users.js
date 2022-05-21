@@ -23,7 +23,7 @@ export const users = [
 		email: "test@gmail.com",
 		password: "test123",
 		avatar:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/1.jpg",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 		createdAt: formatDate(),
 		updatedAt: formatDate(),
 	},

@@ -16,7 +16,7 @@ const defaultRegisterState = {
 		confirmPassword: false,
 	},
 	avatar:
-		"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/feat/profile-page/src/backend/assets/avatars/1.jpg",
+		"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 };
 
 const RegisterContext = createContext({ defaultRegisterState });
