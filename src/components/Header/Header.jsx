@@ -25,9 +25,6 @@ const Header = () => {
 	return (
 		<header className="header header-shadow flex-row justify-content-space-between align-center p-7">
 			<div className="brand-info flex-row justify-content-center align-center flex-gap-1 m-5">
-				<section>
-					<i className="fas fa-bars header-nav-icon"></i>
-				</section>
 				<Link to={"/quizzes"} className="no-link header-brand">
 					<img
 						src="https://raw.githubusercontent.com/sonishreyas/rippleUI/dev/components/media/images/ripple-logo.png"
