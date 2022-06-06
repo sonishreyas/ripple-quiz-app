@@ -152,4 +152,53 @@ export const quizzes = [
 		catergoryName: "Sports",
 		createdBy: "default",
 	},
+	{
+		_id: "4ea21104-c0d7-11ec-9d64-0242ac120002",
+		title: "Physics",
+		totalScore: 50,
+		description: "Take a quiz on Physics.",
+		imageURL:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/images/pgysics.jpg",
+		mcqs: [
+			{
+				_id: uuid(),
+				question: "The Eigen value of a particle in a box is",
+				options: ["L/2", "2/L", "√2/L", "√L/2"],
+				answer: "√L/2",
+			},
+			{
+				_id: uuid(),
+				question: "The walls of a particle in a box are supposed to be?",
+				options: [
+					"Small but infinitely hard",
+					"Infinitely large but soft",
+					"Soft and Small",
+					"Infinitely hard and infinitely large",
+				],
+				answer: "Infinitely hard and infinitely large",
+			},
+			{
+				_id: uuid(),
+				question: "The wave function of the particle lies in which region?",
+				options: ["x > 0", "x < 0", "0 < X < L", "x > L"],
+				answer: "0 < X < L",
+			},
+			{
+				_id: uuid(),
+				question:
+					"For a particle inside a box, the potential is maximum at x = ____",
+				options: ["L", "2/L", "L/2", "3L"],
+				answer: "L",
+			},
+			{
+				_id: uuid(),
+				question:
+					"In a finite Potential well, the potential energy outside the box is _?",
+				options: ["Zero", "Infinite", "Constant", "Variable"],
+				answer: "4",
+			},
+		],
+		catergoryName: "Science",
+		createdBy: "default",
+	},
 ];
