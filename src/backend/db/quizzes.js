@@ -54,7 +54,7 @@ export const quizzes = [
 		createdBy: "4ea212a8-c0d7-11ec-9d64-0242ac120002",
 	},
 	{
-		_id: "4ea21104-c0d7-11ec-9d64-0242ac120002",
+		_id: "4ea21104-c0d7-11ec-9d64-0242ac120003",
 		title: "Game of Thrones",
 		totalScore: 50,
 		description: "Take a quiz on the seven kingdom of westeros.",
@@ -103,7 +103,7 @@ export const quizzes = [
 		createdBy: "default",
 	},
 	{
-		_id: "4ea21104-c0d7-11ec-9d64-0242ac120002",
+		_id: "4ea21104-c0d7-11ec-9d64-0242ac120004",
 		title: "Football",
 		totalScore: 50,
 		description: "Take a quiz on Football.",
@@ -153,12 +153,12 @@ export const quizzes = [
 		createdBy: "default",
 	},
 	{
-		_id: "4ea21104-c0d7-11ec-9d64-0242ac120002",
+		_id: "4ea21104-c0d7-11ec-9d64-0242ac120005",
 		title: "Physics",
 		totalScore: 50,
 		description: "Take a quiz on Physics.",
 		imageURL:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/images/pgysics.jpg",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/images/physics.jpg",
 		mcqs: [
 			{
 				_id: uuid(),
@@ -195,7 +195,7 @@ export const quizzes = [
 				question:
 					"In a finite Potential well, the potential energy outside the box is _?",
 				options: ["Zero", "Infinite", "Constant", "Variable"],
-				answer: "4",
+				answer: "Constant",
 			},
 		],
 		catergoryName: "Science",
