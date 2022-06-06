@@ -108,7 +108,7 @@ export const quizzes = [
 		totalScore: 50,
 		description: "Take a quiz on Football.",
 		imageURL:
-			"https://raw.githubusercontent.com/sonishreyas/rippleUI/dev/components/media/images/series.png",
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/images/football.png",
 		mcqs: [
 			{
 				_id: uuid(),
