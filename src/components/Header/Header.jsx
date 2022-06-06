@@ -52,7 +52,6 @@ const Header = () => {
 						</section>
 					</form>
 				)}
-				<i className="fa-solid fa-magnifying-glass social search-bar-small"></i>
 				{authState.token && (
 					<Link to={"/profile"} className="no-link">
 						<img

@@ -19,10 +19,9 @@
 	border-radius: var(--br-circle);
 }
 @keyframes shine {
-  0% {
-    background-color: var(--primary-color);
-
-  }
+	0% {
+		background-color: var(--primary-color);
+	}
 	100% {
 		background-color: var(--shadow-color);
 	}
@@ -30,9 +29,8 @@
 .category-title-loader {
 	width: 100%;
 	height: 5rem;
-	background-color: var(--secondary-background-color);    
+	background-color: var(--secondary-background-color);
 	animation: 2s shine linear infinite alternate;
-	
 }
 
 .quiz-card-image-loader {
@@ -56,4 +54,16 @@
 .selected-answer {
 	background: var(--tertiary-color);
 	color: var(--cta-color);
+}
+
+@media screen and (max-width: 700px) {
+	.grid-areas-3-rows .header .search-bar-long {
+		display: block;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.grid-areas-3-rows .header .brand-name {
+		display: none;
+	}
 }
