@@ -4,7 +4,6 @@ import { useQuestion, useQuiz } from "../../context";
 const RulesContent = () => {
 	const { rulesData } = useQuiz();
 	const { questionState } = useQuestion();
-	console.log(questionState);
 	return (
 		<main className="main">
 			<section className="p-5 my-5 flex-column justify-content-center align-center">

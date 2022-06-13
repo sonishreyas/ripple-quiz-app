@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { questionReducer } from "../reducers";
 const defaultQuestionState = {
 	quizId: "",
@@ -7,7 +7,7 @@ const defaultQuestionState = {
 };
 const QuestionContext = createContext(defaultQuestionState);
 
-const QuestionProvider = ({ children }) => {
+const QuestionProvider = ({ children }: {children: React.ReactNode}) => {
 	const [questionState, questionDispatch] = useReducer(
 		questionReducer,
 		defaultQuestionState

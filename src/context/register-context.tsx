@@ -1,7 +1,8 @@
-import { useReducer, createContext, useContext } from "react";
+import React, { useReducer, createContext, useContext } from "react";
 import { registerReducer } from "../reducers";
+import { RegisterState, RegisterCtxType } from "./types";
 
-const defaultRegisterState = {
+const defaultRegisterState: RegisterState = {
 	email: "",
 	password: "",
 	firstName: "",
@@ -19,9 +20,9 @@ const defaultRegisterState = {
 		"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 };
 
-const RegisterContext = createContext({ defaultRegisterState });
+const RegisterContext = createContext<RegisterCtxType>({} as RegisterCtxType);
 
-const RegisterProvider = ({ children }) => {
+const RegisterProvider = ({ children }: {children: React.ReactNode}) => {
 	const [registerState, registerDispatch] = useReducer(
 		registerReducer,
 		defaultRegisterState

@@ -1,15 +1,15 @@
-import { useReducer, createContext, useContext } from "react";
+import React, { useReducer, createContext, useContext } from "react";
 import { loginReducer } from "../reducers";
-
-const defaultLoginState = {
+import { LoginState, LoginCtxType } from "./types";
+const defaultLoginState: LoginState = {
 	email: "",
 	password: "",
 	focus: { email: false, password: false },
 };
 
-const LoginContext = createContext({ defaultLoginState });
+const LoginContext = createContext<LoginCtxType>({} as LoginCtxType);
 
-const LoginProvider = ({ children }) => {
+const LoginProvider = ({ children }: {children: React.ReactNode}) => {
 	const [loginState, loginDispatch] = useReducer(
 		loginReducer,
 		defaultLoginState

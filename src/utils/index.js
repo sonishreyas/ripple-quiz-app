@@ -1,5 +1,4 @@
 export {
-	RequireAuth,
 	loginHandler,
 	registerHandler,
 	setValueHandler,

@@ -1,52 +1,11 @@
-import { Routes, Route, Outlet } from "react-router-dom";
-import "./App.css";
-import {
-	Home,
-	Authentication,
-	QuizCategories,
-	Profile,
-	Rules,
-	AddQuiz,
-	Quiz,
-	Result,
-} from "./pages";
+import { Outlet } from "react-router-dom";
 import { Header, Footer } from "./components";
-import { RequireAuth } from "./utils";
+import { AppRoutes } from "./routes";
 function App() {
 	return (
 		<div className="grid-areas-3-rows">
 			<Header />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/auth" element={<Authentication />} />
-				<Route
-					path="/quizzes"
-					element={
-						<RequireAuth>
-							<QuizCategories />
-						</RequireAuth>
-					}
-				/>
-				<Route
-					path="/profile"
-					element={
-						<RequireAuth>
-							<Profile />
-						</RequireAuth>
-					}
-				/>
-				<Route
-					path="/quiz/add"
-					element={
-						<RequireAuth>
-							<AddQuiz />
-						</RequireAuth>
-					}
-				/>
-				<Route path="/rules" element={<Rules />} />
-				<Route path="/result" element={<Result />} />
-				<Route path="/quiz/:quizId" element={<Quiz />} />
-			</Routes>
+			<AppRoutes/>
 			<Outlet />
 			<Footer />
 		</div>

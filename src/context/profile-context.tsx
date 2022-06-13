@@ -1,9 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { useGetAvatarsData } from "../custom-hooks";
+import { ProfileCtxType } from "./types";
 
-const ProfileContext = createContext();
+const ProfileContext = createContext<ProfileCtxType>({} as ProfileCtxType);
 
-const ProfileProvider = ({ children }) => {
+const ProfileProvider = ({ children }: {children: React.ReactNode}) => {
 	const [profileActiveTab, setProfileActiveTab] = useState("Profile");
 	const avatarsData = useGetAvatarsData();
 	return (

@@ -1,7 +1,8 @@
-import { useReducer, createContext, useContext, useEffect } from "react";
+import React, { useReducer, createContext, useContext, useEffect } from "react";
 import { authReducer } from "../reducers";
+import { AuthCtxType, AuthState } from "./types";
 
-const defaultAuthState = {
+const defaultAuthState: AuthState = {
 	token: "",
 	email: "",
 	firstName: "",
@@ -9,17 +10,15 @@ const defaultAuthState = {
 	avatar: "",
 };
 
-const AuthContext = createContext({ defaultAuthState });
+const AuthContext = createContext<AuthCtxType>({} as AuthCtxType);
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }: {children: React.ReactNode}) => {
 	const [authState, authDispatch] = useReducer(authReducer, defaultAuthState);
 	useEffect(
 		() =>
 			authDispatch({
 				type: "UPDATE_USER",
-				payload: !JSON.parse(localStorage.getItem("user"))
-					? {}
-					: JSON.parse(localStorage.getItem("user")),
+				payload: !JSON.parse(localStorage.getItem("user") || `{}`)
 			}),
 		[]
 	);

@@ -1,20 +1,13 @@
 import axios from "axios";
-import { Navigate, useLocation } from "react-router-dom";
-const RequireAuth = ({ children }) => {
-	const location = useLocation();
-	return JSON.parse(localStorage.getItem("user"))?.token ? (
-		children
-	) : (
-		<Navigate to="/auth" state={{ from: location }} replace />
-	);
-};
+import { AuthActionType, LoginState } from "context";
+
 /**
  *
  * @param e Element
  * @param location useLocation()
  * @param navigate useNavigation()
  */
-const loginHandler = (e, location, navigate, loginState, authDispatch) => {
+const loginHandler = (e: Element, location: any, navigate: any, loginState: LoginState, authDispatch: AuthActionType) => {
 	e.preventDefault();
 	const loginInfo = { email: loginState.email, password: loginState.password };
 	(async () => {
@@ -141,7 +134,6 @@ const setFocusHandler = (field, value, type, loginDispatch, focusReset) => {
 	loginDispatch({ payload: { focus: focusReset }, type: type });
 };
 export {
-	RequireAuth,
 	loginHandler,
 	registerHandler,
 	setValueHandler,

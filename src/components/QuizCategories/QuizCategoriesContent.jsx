@@ -7,7 +7,7 @@ const QuizCategoriesContent = () => {
 	useEffect(
 		() =>
 			quizState.quizzes.length
-				? setTimeout(() => setLoader(false), 1000)
+				? setTimeout(() => setLoader(false), 100)
 				: setLoader(true),
 		[quizState]
 	);
