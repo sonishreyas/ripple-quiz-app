@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { questionReducer } from "../reducers";
-const defaultQuestionState = {
+import { QuestionCtxType, QuestionState } from "./types";
+const defaultQuestionState: QuestionState = {
 	quizId: "",
 	questions: {},
 	score: 0,
 };
-const QuestionContext = createContext(defaultQuestionState);
+const QuestionContext = createContext<QuestionCtxType | null>(null);
 
 const QuestionProvider = ({ children }: {children: React.ReactNode}) => {
 	const [questionState, questionDispatch] = useReducer(

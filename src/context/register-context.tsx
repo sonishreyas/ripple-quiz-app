@@ -20,7 +20,7 @@ const defaultRegisterState: RegisterState = {
 		"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 };
 
-const RegisterContext = createContext<RegisterCtxType>({} as RegisterCtxType);
+const RegisterContext = createContext<RegisterCtxType | null>(null);
 
 const RegisterProvider = ({ children }: {children: React.ReactNode}) => {
 	const [registerState, registerDispatch] = useReducer(

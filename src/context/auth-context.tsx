@@ -10,7 +10,7 @@ const defaultAuthState: AuthState = {
 	avatar: "",
 };
 
-const AuthContext = createContext<AuthCtxType>({} as AuthCtxType);
+const AuthContext = createContext<AuthCtxType | null>(null);
 
 const AuthProvider = ({ children }: {children: React.ReactNode}) => {
 	const [authState, authDispatch] = useReducer(authReducer, defaultAuthState);

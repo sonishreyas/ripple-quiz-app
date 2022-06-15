@@ -1,25 +1,27 @@
+import { QuestionActionType, QuestionState } from "context";
+
 /**
  * Reducer function to handle questionzes state
  * @param {Object} questionState State values of questionzes
  * @param {*} questionzesAction The changed state
  * @returns Updated state into questionState
  */
-const questionReducer = (questionState, { type, payload }) => {
-	switch (type) {
+const questionReducer = (questionState: QuestionState, action: QuestionActionType) => {
+	switch (action.type) {
 		case "SET_QUIZ_ID":
 			return {
 				...questionState,
-				quizId: payload.quizId,
+				quizId: action.payload.quizId,
 			};
 		case "SELECT_NEW_ANSWER":
 			return {
 				...questionState,
-				questions: { ...questionState.questions, ...payload.questions },
+				questions: { ...questionState.questions, ...action.payload.questions },
 			};
 		case "UPDATE_SCORE":
 			return {
 				...questionState,
-				score: questionState.score + payload.score,
+				score: questionState.score + action.payload.score,
 			};
 		case "RESET":
 			return {

@@ -12,7 +12,7 @@ const useDefineRootColorScheme = () => {
 		}
 	};
 	useEffect(() => {
-		(document.querySelector(":root") as HTMLInputElement).setAttribute("color-scheme", theme);
+		document.querySelector(":root")?.setAttribute("color-scheme", theme);
 	}, [theme]);
 	return { theme, themeIcon, handleSetTheme };
 };
