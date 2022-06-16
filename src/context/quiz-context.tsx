@@ -6,7 +6,6 @@ import { QuizCtxType, QuizState } from "./types";
 const defaultQuizState: QuizState = {
 	quizzes: [],
 	filterQuizData: [],
-	newQuiz: {},
 };
 const QuizContext = createContext<QuizCtxType | null>(null);
 

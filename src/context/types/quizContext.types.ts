@@ -1,57 +1,45 @@
+export type MCQType = {
+  _id: string;
+  question: string;
+  options: Array<string>;
+  answer: string;
+}
+
 export type QuizDataType = {
   _id: string;
   title: string;
   totalScore: number;
   description: string;
   imageURL: string;
-  mcqs: [];
+  mcqs: Array<MCQType>;
   catergoryName: string;
   createdBy: string;
 }
 
 export type QuizState = {
-  quizzes: Array<QuizDataType> | [];
-	filterQuizData: Array<QuizDataType> | [];
-	newQuiz: {};
-} | null
+  quizzes: Array<QuizDataType>;
+	filterQuizData: Array<QuizDataType>;
+}
 
 export type QuizActionType = 
   | {
-    type: "ADD_NEW_QUIZ";
-    payload: {
-      quiz: QuizDataType;
-    }
-  } 
-  | {
     type: "REMOVE_QUIZ";
     payload: {
-      quizzes: Array<QuizDataType> | [];
+      quizzes: Array<QuizDataType>;
     }
   }
   | {
     type: "GET_QUIZ";
     payload: {
-      quizzes: Array<QuizDataType> | [];
-      filterQuizData: Array<QuizDataType> | [];
+      quizzes: Array<QuizDataType>;
+      filterQuizData: Array<QuizDataType>;
     }
   }
   | {
     type: "FILTER_QUIZ_DATA";
     payload: {
-      filterQuizData: Array<QuizDataType> | [];
+      filterQuizData: Array<QuizDataType>;
     }
-  }
-  | {
-    type: "NEW_QUIZ";
-    payload: {
-      newQuiz: {};
-    }
-  }
-  | {
-    type: "RESET_FORM";
-  }
-  | {
-    type: "RESET";
   }
 
 export type RulesType = {
@@ -67,7 +55,7 @@ export type CategoryType = {
 
 export type QuizCtxType = {
   quizState: QuizState;
-  quizDispatch: QuizActionType;
-  categoriesData: Array<CategoryType> | [];
-  rulesData: Array<RulesType> | [];
+  quizDispatch: (arg: QuizActionType) => void;
+  categoriesData: Array<CategoryType>;
+  rulesData: Array<RulesType>;
 }

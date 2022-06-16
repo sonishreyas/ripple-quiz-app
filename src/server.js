@@ -9,12 +9,10 @@ import {
 	getCategoryHandler,
 } from "./backend/controllers/CategoryController";
 import {
-	addQuizHandler,
 	getAllQuizesHandler,
 	getSingleQuizHandler,
 	getSingleQuizQuestionAnswer,
 	postQuizResultHandler,
-	deleteQuizHandler,
 } from "./backend/controllers/QuizesController";
 import { editUserHandler } from "./backend/controllers/UserController";
 import { getAvatarsHandler } from "./backend/controllers/AvatarsController";
@@ -92,9 +90,7 @@ export function makeServer({ environment = "development" } = {}) {
 			this.get("/categories/:categoryId", getCategoryHandler.bind(this));
 
 			// quizes routes (private)
-			this.post("/quizzes", addQuizHandler.bind(this));
 			this.post("/quizzes/result", postQuizResultHandler.bind(this));
-			this.delete("/quiz/:quizId", deleteQuizHandler.bind(this));
 		},
 	});
 }

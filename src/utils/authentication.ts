@@ -1,5 +1,7 @@
 import axios from "axios";
-import { AuthActionType, LoginState } from "context";
+import { AuthState, LoginActionType, LoginState, RegisterState } from "context";
+import React, { FormEvent } from "react";
+import { UserDataType } from "types";
 
 /**
  *
@@ -7,9 +9,9 @@ import { AuthActionType, LoginState } from "context";
  * @param location useLocation()
  * @param navigate useNavigation()
  */
-const loginHandler = (e: Element, location: any, navigate: any, loginState: LoginState, authDispatch: AuthActionType) => {
+const loginHandler = (e: FormEvent, location: any, navigate: any, loginState: LoginState, authDispatch: any) => {
 	e.preventDefault();
-	const loginInfo = { email: loginState.email, password: loginState.password };
+	const loginInfo = { email: loginState?.email, password: loginState?.password };
 	(async () => {
 		try {
 			const response = await axios.post(`/api/auth/login`, loginInfo);
@@ -41,11 +43,11 @@ const loginHandler = (e: Element, location: any, navigate: any, loginState: Logi
  * @param navigate useNavigation()
  */
 const registerHandler = (
-	e,
-	location,
-	navigate,
-	registerState,
-	authDispatch
+	e: FormEvent,
+	location: any,
+	navigate: any,
+	registerState: RegisterState,
+	authDispatch: any
 ) => {
 	e.preventDefault();
 	const registerInfo = {
@@ -87,7 +89,7 @@ const registerHandler = (
  * @param {string} token encodedToken of user
  * @param {function} habitsDispatch Reducer function
  */
-const updateUserHandler = (element, userData, authDispatch, authState) => {
+const updateUserHandler = (element: FormEvent, userData: UserDataType, authDispatch: any, authState: AuthState) => {
 	element.preventDefault();
 	(async () => {
 		try {
@@ -97,7 +99,7 @@ const updateUserHandler = (element, userData, authDispatch, authState) => {
 				{
 					headers: {
 						Accept: "*/*",
-						authorization: JSON.parse(localStorage.getItem("user"))?.token,
+						authorization: JSON.parse(localStorage.getItem("user") || `{}`)?.token,
 					},
 				}
 			);
@@ -117,19 +119,19 @@ const updateUserHandler = (element, userData, authDispatch, authState) => {
 	})();
 };
 
-const setValueHandler = (e, field, type, loginDispatch) => {
-	const fieldValue = { type: type, payload: {} };
+const setValueHandler = (e: React.ChangeEvent<HTMLInputElement>, field: string, type: string, dispatch: any) => {
+	const fieldValue: any = { type: type, payload: {} };
 	fieldValue.payload[field] = e.target.value;
-	loginDispatch(fieldValue);
+	dispatch(fieldValue);
 };
 
-const setTestHandler = (loginDispatch) =>
+const setTestHandler = (loginDispatch: any) =>
 	loginDispatch({
 		type: "TEST_CREDENTIAL",
 		payload: { email: "test@gmail.com", password: "test123" },
 	});
 
-const setFocusHandler = (field, value, type, loginDispatch, focusReset) => {
+const setFocusHandler = (field: string, value: boolean, type: string, loginDispatch: any, focusReset: any) => {
 	focusReset[field] = value;
 	loginDispatch({ payload: { focus: focusReset }, type: type });
 };

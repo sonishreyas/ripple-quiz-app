@@ -5,13 +5,8 @@ import { QuizState, QuizActionType } from "context";
  * @param {*} quizzesAction The changed state
  * @returns Updated state into quizState
  */
-const quizReducer = (quizState: QuizState, action: QuizActionType) => {
+const quizReducer = (quizState: QuizState, action: QuizActionType): QuizState => {
 	switch (action.type) {
-		case "ADD_NEW_QUIZ":
-			return {
-				...quizState,
-				quizzes: [...quizState.quizzes, ...action.payload.quiz],
-			};
 		case "REMOVE_QUIZ":
 			return {
 				...quizState,
@@ -27,24 +22,6 @@ const quizReducer = (quizState: QuizState, action: QuizActionType) => {
 			return {
 				...quizState,
 				filterQuizData: [...action.payload.filterQuizData],
-			};
-		case "NEW_QUIZ":
-			return {
-				...quizState,
-				newQuiz: { ...quizState.newQuiz, ...action.payload.newQuiz },
-			};
-		case "RESET_FORM":
-			return {
-				...quizState,
-				newQuiz: {
-					title: "",
-				},
-			};
-
-		case "RESET":
-			return {
-				...quizState,
-				newQuiz: {},
 			};
 		default:
 			return quizState;

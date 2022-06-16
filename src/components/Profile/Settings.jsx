@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth, useLogin, useRegister, useProfile } from "../../context";
-import { updateUserHandler } from "../../utils";
+import { useAuth, useLogin, useRegister, useProfile } from "context";
+import { updateUserHandler } from "utils";
 const Settings = () => {
 	const { authDispatch, authState } = useAuth();
 	const { loginDispatch } = useLogin();

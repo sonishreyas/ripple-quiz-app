@@ -1,4 +1,4 @@
-import { CreateQuiz, Quizzes, CategoriesLoader } from ".";
+import { Quizzes, CategoriesLoader } from ".";
 import { useQuiz } from "../../context";
 import { useState, useEffect } from "react";
 const QuizCategoriesContent = () => {

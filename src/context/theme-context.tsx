@@ -1,14 +1,15 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { useDefineRootColorScheme } from "../custom-hooks";
+import { ThemeCtxType, ThemeStateType } from "./types";
 
-const defaultThemeContextValues = {
+const defaultThemeContextValues: ThemeStateType = {
 	theme: "dark",
 	themeIcon: "sun",
 };
 
-const ThemeContext = createContext({ defaultThemeContextValues });
+const ThemeContext = createContext<ThemeCtxType | null>(null);
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }: {children: React.ReactNode}) => {
 	const { theme, themeIcon, handleSetTheme } = useDefineRootColorScheme();
 
 	return (

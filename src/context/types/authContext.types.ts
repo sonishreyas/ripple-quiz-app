@@ -48,7 +48,7 @@ export type LoginState = {
   email: string;
 	password: string;
 	focus: { email: boolean, password: boolean };
-} | {};
+};
 
 export type LoginActionType = 
   | {
@@ -100,7 +100,7 @@ export type RegisterState = {
 		confirmPassword: boolean;
 	};
 	avatar: string;
-}  | {};
+};
 
 export type RegisterActionType = 
   | {
