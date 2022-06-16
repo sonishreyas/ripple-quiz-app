@@ -1,5 +1,6 @@
+import { RulesType } from "context";
 import { v4 as uuid } from "uuid";
-export const rules = [
+export const rules: Array<RulesType> = [
 	{
 		_id: uuid(),
 		rule: "A team gets 30 seconds to answer the question intended for it, and is awarded 20 points for answering it.",

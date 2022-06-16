@@ -1,11 +1,11 @@
-import { v4 as uuid } from "uuid";
+import { CategoryType } from "context";
 
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
  * */
 
-export const categories = [
+export const categories: Array<CategoryType> = [
 	{
 		_id: "4ea1f8fe-c0d7-11ec-9d64-0242ac120002",
 		categoryName: "TV Series",

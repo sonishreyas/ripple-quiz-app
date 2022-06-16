@@ -1,5 +1,6 @@
+import { AvatarDataType } from "context";
 import { v4 as uuid } from "uuid";
-export const avatars = [
+export const avatars: Array<AvatarDataType> = [
 	{
 		_id: uuid(),
 		avatarURL:

@@ -13,7 +13,7 @@ import { requiresAuth } from "../utils/authUtils";
  * body contains {userData}
  * */
 
-export const editUserHandler = function (schema, request) {
+export const editUserHandler = function (this: any, schema: any, request: any) {
 	const user = requiresAuth.call(this, request);
 	if (!user) {
 		return new Response(

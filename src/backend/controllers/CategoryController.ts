@@ -10,7 +10,7 @@ import { Response } from "miragejs";
  * send GET Request at /api/categories
  * */
 
-export const getAllCategoriesHandler = function () {
+export const getAllCategoriesHandler = function (this:any) {
   try {
     return new Response(200, {}, { categories: this.db.categories });
   } catch (error) {
@@ -29,7 +29,7 @@ export const getAllCategoriesHandler = function () {
  * send GET Request at /api/user/category/:categoryId
  * */
 
-export const getCategoryHandler = function (schema, request) {
+export const getCategoryHandler = function (schema:any, request:any) {
   const categoryId = request.params.categoryId;
   try {
     const category = schema.categories.findBy({ _id: categoryId });

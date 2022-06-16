@@ -9,9 +9,9 @@ import { Response } from "miragejs";
  * send GET Request at /api/colors
  * */
 
-export const getAvatarsHandler = function () {
+export const getRulesHandler = function (this:any) {
 	try {
-		return new Response(200, {}, { avatars: this.db.avatars });
+		return new Response(200, {}, { rules: this.db.rules });
 	} catch (error) {
 		return new Response(
 			500,

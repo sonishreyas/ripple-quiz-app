@@ -1,3 +1,4 @@
+import { QuizDataType } from "context";
 import { v4 as uuid } from "uuid";
 
 /**
@@ -5,7 +6,7 @@ import { v4 as uuid } from "uuid";
  * You can add products of your wish with different attributes
  * */
 
-export const quizzes = [
+export const quizzes: Array<QuizDataType> = [
 	{
 		_id: "4ea20038-c0d7-11ec-9d64-0242ac120002",
 		title: "Big Bang Theory",

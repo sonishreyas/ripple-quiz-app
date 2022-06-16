@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { UserType } from "types";
 import { formatDate } from "../utils/authUtils";
 /**
  * User Database can be added here.
@@ -6,13 +6,15 @@ import { formatDate } from "../utils/authUtils";
  * Every user will have cart (Quantity of all Products in Cart is set to 1 by default), wishList by default
  * */
 
-export const users = [
+export const users: UserType = [
 	{
-		_id: 1007,
+		_id: "1007",
 		firstName: "Adarsh",
 		lastName: "Balika",
 		email: "admin@gmail.com",
 		password: "123456",
+		avatar:
+			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 		createdAt: formatDate(),
 		updatedAt: formatDate(),
 	},
