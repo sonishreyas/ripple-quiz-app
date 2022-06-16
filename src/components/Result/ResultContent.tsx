@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useQuestion, useQuiz } from "../../context";
+import { MCQType, QuizDataType, useQuestion, useQuiz } from "context";
 const ResultContent = () => {
 	const { questionState, questionDispatch } = useQuestion();
 	const { quizState } = useQuiz();
 	const quizData = quizState.quizzes.length
-		? quizState.quizzes.filter((item) => item._id === questionState.quizId)[0]
+		? quizState.quizzes.filter((item: QuizDataType) => item._id === questionState.quizId)[0]
 		: {};
 	const navigate = useNavigate();
 	const handleRedirect = () => {
@@ -24,7 +24,7 @@ const ResultContent = () => {
 					</h4>
 				</section>
 				{quizData &&
-					quizData.mcqs.map(({ _id, question, options, answer }) => (
+					quizData.mcqs.map(({ _id, question, options, answer }: MCQType) => (
 						<section className="p-5 m-5" key={_id}>
 							<p className="text-bold p-2">{question}</p>
 							<ul className="stacked-list flex-column flex-gap-1 align-center w-100 h-auto">

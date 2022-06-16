@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useQuestion, useQuiz } from "../../context";
+import { QuizDataType, useQuestion, useQuiz } from "context";
 import { useState } from "react";
 const QuizContent = () => {
 	const navigate = useNavigate();
 	const { quizState } = useQuiz();
 	const { questionState, questionDispatch } = useQuestion();
 	const quizData = quizState.quizzes.length
-		? quizState.quizzes.filter((item) => item._id === questionState.quizId)[0]
+		? quizState.quizzes.filter((item: QuizDataType) => item._id === questionState.quizId)[0]
 		: {};
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const handleNextQuestion = () => {
@@ -54,7 +54,7 @@ const QuizContent = () => {
 								{quizData.mcqs[questionIndex].question}
 							</p>
 							<ul className="stacked-list flex-column flex-gap-1 align-center w-100 h-auto">
-								{quizData.mcqs[questionIndex].options.map((item, index) => (
+								{quizData.mcqs[questionIndex].options.map((item: string, index: number) => (
 									<li className="no-list w-100 h-auto" key={index}>
 										<label
 											className={`basic-card flex-row justify-content-center align-center flex-gap-1 flex-wrap p-5 b-radius-3 my-2 cursor-pointer w-100 h-auto ${
@@ -78,7 +78,7 @@ const QuizContent = () => {
 														: false
 												}
 												onChange={() => {
-													const question = {};
+													const question :any= {};
 													const key = quizData["mcqs"][questionIndex]["_id"];
 													question[key] = item;
 													questionDispatch({

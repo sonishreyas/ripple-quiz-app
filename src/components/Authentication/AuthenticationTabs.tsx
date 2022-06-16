@@ -1,8 +1,8 @@
-import { Login, Register } from "./";
+import { Login, Register } from ".";
 import { useState } from "react";
 const AuthenticationTabs = () => {
 	const [activeTab, setActiveTab] = useState("Login");
-	const tabClickhandler = (activeTabName) => setActiveTab(activeTabName);
+	const tabClickhandler = (activeTabName: string) => setActiveTab(activeTabName);
 
 	return (
 		<section className="authentication-tabs p-10 m-10">

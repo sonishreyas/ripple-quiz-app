@@ -1,14 +1,14 @@
-import { useQuiz, useQuestion } from "../../context";
+import { useQuiz, useQuestion, CategoryType, QuizDataType } from "context";
 import { useNavigate } from "react-router-dom";
 const Quizzes = () => {
 	const navigate = useNavigate();
 	const { categoriesData, quizState } = useQuiz();
 	const { questionDispatch } = useQuestion();
-	const getQuizDataFromCategory = (categoryName) =>
+	const getQuizDataFromCategory = (categoryName: string) =>
 		quizState.filterQuizData.filter(
-			(item) => item.catergoryName === categoryName
+			(item: CategoryType) => item.categoryName === categoryName
 		);
-	const handleSetQuizId = (_id) => {
+	const handleSetQuizId = (_id: string) => {
 		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
 		navigate("/rules");
 	};
@@ -16,7 +16,7 @@ const Quizzes = () => {
 		<div className="m-5 p-5">
 			{categoriesData.length &&
 				quizState.filterQuizData.length &&
-				categoriesData.map(({ _id, categoryName }) => {
+				categoriesData.map(({ _id, categoryName }: {_id: string, categoryName: string}) => {
 					return (
 						<section key={_id}>
 							<section className="quiz-container flex-row justify-content-space-between align-center p-7 w-100">
@@ -24,7 +24,7 @@ const Quizzes = () => {
 							</section>
 							<section className="flex-row flex-wrap justify-align-center align-center flex-gap-2">
 								{getQuizDataFromCategory(categoryName)?.map(
-									({ _id, title, description, imageURL }) => (
+									({ _id, title, description, imageURL }: QuizDataType) => (
 										<article
 											key={_id}
 											className="card vertical card-shadow p-5 b-radius-2 mt-10"
@@ -44,7 +44,7 @@ const Quizzes = () => {
 											</section>
 											<section className="flex-row flex-gap-1 justify-content-center align-center w-100">
 												<button
-													onClick={() => handleSetQuizId(_id, title)}
+													onClick={() => handleSetQuizId(_id)}
 													className="no-link-decoration primary-btn p-5 b-radius-2 text-bold flex-row justify-content-center align-center flex-gap-1 flex-grow w-100 h-auto text-tertiary-color cursor-pointer"
 												>
 													Play

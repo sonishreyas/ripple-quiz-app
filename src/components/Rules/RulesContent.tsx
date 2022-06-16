@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useQuestion, useQuiz } from "../../context";
+import { RulesType, useQuestion, useQuiz } from "context";
 
 const RulesContent = () => {
 	const { rulesData } = useQuiz();
@@ -10,7 +10,7 @@ const RulesContent = () => {
 				<h1 className="p-2 my-2 mx-0 text-center text-bold">Rules</h1>
 				<ol>
 					{rulesData.length &&
-						rulesData.map(({ _id, rule }) => (
+						rulesData.map(({ _id, rule }: RulesType) => (
 							<li className="p-5 m-5" key={_id}>
 								{rule}
 							</li>

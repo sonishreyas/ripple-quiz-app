@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { useAuth, useQuiz, useTheme } from "../../context";
-import { useState, useEffect } from "react";
+import { useAuth, useQuiz, useTheme } from "context";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
 	const { themeIcon, handleSetTheme } = useTheme();
 	const { authState } = useAuth();
 	const [query, setQuery] = useState("");
 	const { quizState, quizDispatch } = useQuiz();
-	const handleSearch = (e) => {
+	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setQuery(e.target.value);
 	};
 	useEffect(() => {
@@ -15,7 +15,7 @@ const Header = () => {
 			type: "FILTER_QUIZ_DATA",
 			payload: {
 				filterQuizData: query.length
-					? quizState.quizzes.filter(({ title }) =>
+					? quizState.quizzes.filter(({ title }: {title: string}) =>
 							title.toLowerCase().includes(query.toLowerCase())
 					  )
 					: quizState.quizzes,

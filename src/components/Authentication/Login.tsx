@@ -5,12 +5,12 @@ import {
 	setValueHandler,
 	setTestHandler,
 	setFocusHandler,
-} from "../../utils";
-import { useLogin, useAuth } from "../../context";
+} from "utils";
+import { useLogin, useAuth } from "context";
 const Login = () => {
 	const { loginState, loginDispatch } = useLogin();
 	const { authDispatch } = useAuth();
-	const [showPassword, setShowPassword] = useState();
+	const [showPassword, setShowPassword] = useState(false);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const focusReset = { email: false, password: false };

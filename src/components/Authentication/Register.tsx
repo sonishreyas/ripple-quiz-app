@@ -1,15 +1,15 @@
 import { useLocation, useNavigate } from "react-router";
 import { useState } from "react";
-import { useRegister, useAuth } from "../../context";
-import { registerHandler, setValueHandler, setFocusHandler } from "../../utils";
+import { useRegister, useAuth } from "context";
+import { registerHandler, setValueHandler, setFocusHandler } from "utils";
 
 const Register = () => {
 	const { registerState, registerDispatch } = useRegister();
 	const { authDispatch } = useAuth();
 	const location = useLocation();
 	const navigate = useNavigate();
-	const [showPassword, setShowPassword] = useState();
-	const [showConfirmPassword, setShowConfirmPassword] = useState();
+	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 	const focusReset = {
 		firstName: false,
 		lastName: false,

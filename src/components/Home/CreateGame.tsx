@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context";
+import { useAuth } from "context";
 const CreateGame = () => {
 	const { authState } = useAuth();
 	return (

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth, useLogin, useRegister, useProfile } from "context";
 import { updateUserHandler } from "utils";
+import { FormEvent } from "react";
 const Settings = () => {
 	const { authDispatch, authState } = useAuth();
 	const { loginDispatch } = useLogin();
@@ -14,7 +15,7 @@ const Settings = () => {
 		registerDispatch({ type: "RESET" });
 		navigate("/");
 	};
-	const handleAvatarChange = (e, avatar) =>
+	const handleAvatarChange = (e: FormEvent, avatar: string) =>
 		updateUserHandler(e, { avatar: avatar }, authDispatch, authState);
 
 	return (
@@ -28,7 +29,7 @@ const Settings = () => {
 						<h3>Choose Avatar: </h3>
 						<div className="flex-row justify-content-start align-center flex-wrap flex-gap-2 m-5">
 							{avatarsData?.length &&
-								avatarsData?.map(({ _id, avatarURL }) => (
+								avatarsData?.map(({ _id, avatarURL }: {_id: string, avatarURL: string}) => (
 									<label
 										className={`circle-container flex-row justify-content-center align-center ${
 											authState.avatar === avatarURL ? "avatar-selected" : ""
