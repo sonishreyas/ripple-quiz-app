@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { requiresAuth } from "../utils/authUtils";
 
@@ -14,7 +13,7 @@ import { requiresAuth } from "../utils/authUtils";
  * */
 
 export const editUserHandler = function (this: any, schema: any, request: any) {
-	const user = requiresAuth.call(this, request);
+	const user : any = requiresAuth.call(this, request);
 	if (!user) {
 		return new Response(
 			404,

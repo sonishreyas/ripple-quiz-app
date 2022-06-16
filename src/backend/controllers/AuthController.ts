@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
-import { formatDate } from "../utils/authUtils";
+import { formatDate, requiresAuth } from "../utils/authUtils";
 const sign = require("jwt-encode");
 /**
  * All the routes related to Auth are present here.
@@ -13,7 +13,7 @@ const sign = require("jwt-encode");
  * body contains {firstName, lastName, email, password}
  * */
 
-export const signupHandler = function (schema, request) {
+export const signupHandler = function (schema: any, request: any) {
   const { email, password, ...rest } = JSON.parse(request.requestBody);
   try {
     // check if email already exists
@@ -59,7 +59,7 @@ export const signupHandler = function (schema, request) {
  * body contains {email, password}
  * */
 
-export const loginHandler = function (schema, request) {
+export const loginHandler = function (schema: any, request: any) {
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });
@@ -98,7 +98,7 @@ export const loginHandler = function (schema, request) {
   }
 };
 
-export const checkToken = function (schema, request) {
+export const checkToken = function (this: any, schema: any, request: any) {
   const userId = requiresAuth.call(this, request);
   try {
     if (!userId) {

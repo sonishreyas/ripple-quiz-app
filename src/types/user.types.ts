@@ -2,7 +2,7 @@ export type UserDataType = {
   avatar: string;
 }
 
-export type UserType = Array<{
+export type UserType = {
   _id: string;
   firstName: string;
   lastName: string;
@@ -11,4 +11,4 @@ export type UserType = Array<{
   avatar: string;
   createdAt: string;
   updatedAt: string;
-}>
+}

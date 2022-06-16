@@ -22,6 +22,7 @@ import { quizzes } from "./backend/db/quizzes";
 import { users } from "./backend/db/users";
 import { avatars } from "./backend/db/avatars";
 import { rules } from "./backend/db/rules";
+
 export function makeServer({ environment = "development" } = {}) {
 	return new Server({
 		serializers: {
@@ -43,7 +44,7 @@ export function makeServer({ environment = "development" } = {}) {
 		seeds(server) {
 			// disballing console logs from Mirage
 			server.logging = false;
-			quizzes.forEach((item) => server.create("quiz", item));
+			quizzes.forEach((item) => server.create("quiz", { ...item }));
 			avatars.forEach((item) => server.create("avatar", { ...item }));
 			rules.forEach((item) => server.create("rule", { ...item }));
 

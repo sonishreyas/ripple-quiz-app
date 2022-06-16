@@ -1,12 +1,11 @@
 import { Response } from "miragejs";
 import { requiresAuth } from "../utils/authUtils";
-import { v4 as uuid } from "uuid";
 
-export const getAllQuizesHandler = function () {
+export const getAllQuizesHandler = function (this: any) {
 	return new Response(200, {}, { quizes: this.db.quizzes });
 };
 
-export const getSingleQuizHandler = function (schema, request) {
+export const getSingleQuizHandler = function (schema: any, request: any) {
 	const Id = request.params.quizId;
 	try {
 		const quiz = schema.quizzes.findBy({ _id: Id });
@@ -22,7 +21,7 @@ export const getSingleQuizHandler = function (schema, request) {
 	}
 };
 
-export const getSingleQuizQuestionAnswer = function (schema, request) {
+export const getSingleQuizQuestionAnswer = function (schema: any, request: any) {
 	const quizId = request.params.quizId;
 	const questionId = request.params.questionId;
 	try {
@@ -40,7 +39,7 @@ export const getSingleQuizQuestionAnswer = function (schema, request) {
 	}
 };
 
-export const postQuizResultHandler = function (schema, request) {
+export const postQuizResultHandler = function (this: any, schema: any, request: any) {
 	const userId = requiresAuth.call(this, request);
 	try {
 		if (!userId) {
