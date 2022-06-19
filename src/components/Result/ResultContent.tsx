@@ -12,7 +12,7 @@ const ResultContent = () => {
 				description: "",
 				imageURL: "",
 				mcqs: [],
-				catergoryName: "",
+				categoryName: "",
 				createdBy: "",
 		  };
 	const navigate = useNavigate();

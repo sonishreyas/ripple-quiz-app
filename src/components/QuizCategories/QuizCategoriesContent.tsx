@@ -5,10 +5,11 @@ const QuizCategoriesContent = () => {
 	const [loader, setLoader] = useState<boolean>(true);
 	const { quizState } = useQuiz();
 	useEffect(
-		() =>
-			quizState.quizzes.length
+		() => {
+			quizState?.quizzes?.length
 				? setTimeout(() => setLoader(false), 100)
-				: setLoader(true),
+				: setLoader(true)
+		},
 		[quizState]
 	);
 	return (

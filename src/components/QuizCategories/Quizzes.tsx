@@ -6,12 +6,12 @@ const Quizzes = () => {
 	const { questionDispatch } = useQuestion();
 	const getQuizDataFromCategory = (categoryName: string) =>
 		quizState.filterQuizData.filter(
-			(item: any) => item.categoryName === categoryName
-		);
+			(item: any) => item.categoryName === categoryName);
 	const handleSetQuizId = (_id: string) => {
 		questionDispatch({ type: "SET_QUIZ_ID", payload: { quizId: _id } });
 		navigate("/rules");
 	};
+
 	return (
 		<div className="m-5 p-5">
 			{categoriesData.length &&

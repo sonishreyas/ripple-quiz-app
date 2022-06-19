@@ -51,7 +51,7 @@ export const quizzes: Array<QuizDataType> = [
 				answer: "Cinnamon",
 			},
 		],
-		catergoryName: "TV Series",
+		categoryName: "TV Series",
 		createdBy: "4ea212a8-c0d7-11ec-9d64-0242ac120002",
 	},
 	{
@@ -100,7 +100,7 @@ export const quizzes: Array<QuizDataType> = [
 				answer: "Jorah Mormont",
 			},
 		],
-		catergoryName: "TV Series",
+		categoryName: "TV Series",
 		createdBy: "default",
 	},
 	{
@@ -150,7 +150,7 @@ export const quizzes: Array<QuizDataType> = [
 				answer: "4",
 			},
 		],
-		catergoryName: "Sports",
+		categoryName: "Sports",
 		createdBy: "default",
 	},
 	{
@@ -199,7 +199,7 @@ export const quizzes: Array<QuizDataType> = [
 				answer: "Constant",
 			},
 		],
-		catergoryName: "Science",
+		categoryName: "Science",
 		createdBy: "default",
 	},
 ];

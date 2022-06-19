@@ -12,7 +12,7 @@ export type QuizDataType = {
   description: string;
   imageURL: string;
   mcqs: Array<MCQType>;
-  catergoryName: string;
+  categoryName: string;
   createdBy: string;
 }
 

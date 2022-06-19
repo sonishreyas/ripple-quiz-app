@@ -16,7 +16,7 @@ const QuizContent = () => {
 				description: "",
 				imageURL: "",
 				mcqs: [],
-				catergoryName: "",
+				categoryName: "",
 				createdBy: "",
 		  };
 	const [questionIndex, setQuestionIndex] = useState(0);
@@ -42,7 +42,7 @@ const QuizContent = () => {
 	};
 	return (
 		<main className="main">
-			{Object.keys(quizData).length && (
+			{quizData._id.length && (
 				<section className="flex-column flex-gap-1 w-100 h-auto w-50">
 					<h3 className="card-title text-bold p-5 my-2 text-cta-color text-center">
 						{quizData.title}
