@@ -6,5 +6,5 @@ export type ThemeStateType = {
 export type ThemeCtxType = {
   theme: string;
   themeIcon: string;
-  handleSetTheme: Function;
+  handleSetTheme: any;
 }

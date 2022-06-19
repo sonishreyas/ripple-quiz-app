@@ -2,7 +2,7 @@ import { Quizzes, CategoriesLoader } from ".";
 import { useQuiz } from "../../context";
 import { useState, useEffect } from "react";
 const QuizCategoriesContent = () => {
-	const [loader, setLoader] = useState(true);
+	const [loader, setLoader] = useState<boolean>(true);
 	const { quizState } = useQuiz();
 	useEffect(
 		() =>

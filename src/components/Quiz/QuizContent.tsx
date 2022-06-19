@@ -5,9 +5,20 @@ const QuizContent = () => {
 	const navigate = useNavigate();
 	const { quizState } = useQuiz();
 	const { questionState, questionDispatch } = useQuestion();
-	const quizData = quizState.quizzes.length
-		? quizState.quizzes.filter((item: QuizDataType) => item._id === questionState.quizId)[0]
-		: {};
+	const quizData: QuizDataType = quizState.quizzes.length
+		? quizState.quizzes.filter(
+				(item: QuizDataType) => item._id === questionState.quizId
+		  )[0]
+		: {
+				_id: "",
+				title: "",
+				totalScore: 0,
+				description: "",
+				imageURL: "",
+				mcqs: [],
+				catergoryName: "",
+				createdBy: "",
+		  };
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const handleNextQuestion = () => {
 		setQuestionIndex(questionIndex + 1);
@@ -54,43 +65,45 @@ const QuizContent = () => {
 								{quizData.mcqs[questionIndex].question}
 							</p>
 							<ul className="stacked-list flex-column flex-gap-1 align-center w-100 h-auto">
-								{quizData.mcqs[questionIndex].options.map((item: string, index: number) => (
-									<li className="no-list w-100 h-auto" key={index}>
-										<label
-											className={`basic-card flex-row justify-content-center align-center flex-gap-1 flex-wrap p-5 b-radius-3 my-2 cursor-pointer w-100 h-auto ${
-												questionState.questions[
-													quizData["mcqs"][questionIndex]["_id"]
-												] === item
-													? "selected-answer"
-													: ""
-											}`}
-										>
-											<input
-												className="filters"
-												type="radio"
-												name="selectAnswer"
-												value={item}
-												checked={
+								{quizData.mcqs[questionIndex].options.map(
+									(item: string, index: number) => (
+										<li className="no-list w-100 h-auto" key={index}>
+											<label
+												className={`basic-card flex-row justify-content-center align-center flex-gap-1 flex-wrap p-5 b-radius-3 my-2 cursor-pointer w-100 h-auto ${
 													questionState.questions[
 														quizData["mcqs"][questionIndex]["_id"]
 													] === item
-														? true
-														: false
-												}
-												onChange={() => {
-													const question :any= {};
-													const key = quizData["mcqs"][questionIndex]["_id"];
-													question[key] = item;
-													questionDispatch({
-														payload: { questions: { ...question } },
-														type: "SELECT_NEW_ANSWER",
-													});
-												}}
-											/>
-											<h3>{item}</h3>
-										</label>
-									</li>
-								))}
+														? "selected-answer"
+														: ""
+												}`}
+											>
+												<input
+													className="filters"
+													type="radio"
+													name="selectAnswer"
+													value={item}
+													checked={
+														questionState.questions[
+															quizData["mcqs"][questionIndex]["_id"]
+														] === item
+															? true
+															: false
+													}
+													onChange={() => {
+														const question: any = {};
+														const key = quizData["mcqs"][questionIndex]["_id"];
+														question[key] = item;
+														questionDispatch({
+															payload: { questions: { ...question } },
+															type: "SELECT_NEW_ANSWER",
+														});
+													}}
+												/>
+												<h3>{item}</h3>
+											</label>
+										</li>
+									)
+								)}
 							</ul>
 							<section className="flex-row justify-content-end">
 								{questionIndex < quizData.mcqs.length - 1 ? (

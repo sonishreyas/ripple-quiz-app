@@ -29,5 +29,5 @@ export type QuestionActionType  =
 
 export type QuestionCtxType = {
   questionState: QuestionState;
-  questionDispatch: (arg: QuestionActionType) => void;
+  questionDispatch: (arg0: QuestionActionType) => void;
 }

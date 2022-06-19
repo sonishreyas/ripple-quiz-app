@@ -7,7 +7,7 @@ const defaultThemeContextValues: ThemeStateType = {
 	themeIcon: "sun",
 };
 
-const ThemeContext = createContext<ThemeCtxType | null>(null);
+const ThemeContext = createContext({} as ThemeCtxType);
 
 const ThemeProvider = ({ children }: {children: React.ReactNode}) => {
 	const { theme, themeIcon, handleSetTheme } = useDefineRootColorScheme();

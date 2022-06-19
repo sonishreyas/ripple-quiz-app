@@ -7,7 +7,7 @@ const defaultLoginState: LoginState = {
 	focus: { email: false, password: false },
 };
 
-const LoginContext = createContext<LoginCtxType | null>(null);
+const LoginContext = createContext({} as LoginCtxType);
 
 const LoginProvider = ({ children }: {children: React.ReactNode}) => {
 	const [loginState, loginDispatch] = useReducer(

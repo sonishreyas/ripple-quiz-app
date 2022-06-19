@@ -1,3 +1,4 @@
+import { MCQType } from "context";
 import { Response } from "miragejs";
 import { requiresAuth } from "../utils/authUtils";
 
@@ -26,7 +27,7 @@ export const getSingleQuizQuestionAnswer = function (schema: any, request: any) 
 	const questionId = request.params.questionId;
 	try {
 		const quiz = schema.quizzes.findBy({ _id: quizId });
-		const question = quiz.mcqs.find((item) => item._id === questionId);
+		const question = quiz.mcqs.find((item: MCQType) => item._id === questionId);
 		return new Response(200, {}, { question });
 	} catch (error) {
 		return new Response(

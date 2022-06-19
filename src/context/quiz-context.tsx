@@ -7,7 +7,7 @@ const defaultQuizState: QuizState = {
 	quizzes: [],
 	filterQuizData: [],
 };
-const QuizContext = createContext<QuizCtxType | null>(null);
+const QuizContext = createContext({} as QuizCtxType);
 
 const QuizProvider = ({ children }: {children: React.ReactNode}) => {
 	const categoriesData = useGetCategoriesData();

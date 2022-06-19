@@ -1,4 +1,4 @@
-import { JoinGame, CreateGame } from ".";
+import { CreateGame } from ".";
 import { useState } from "react";
 const HomeTabs = () => {
 	const [activeTab, setActiveTab] = useState("Create");

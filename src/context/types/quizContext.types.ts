@@ -17,7 +17,7 @@ export type QuizDataType = {
 }
 
 export type QuizState = {
-  quizzes: Array<QuizDataType>;
+  quizzes: Array<QuizDataType> | [];
 	filterQuizData: Array<QuizDataType>;
 }
 
@@ -55,7 +55,7 @@ export type CategoryType = {
 
 export type QuizCtxType = {
   quizState: QuizState;
-  quizDispatch: (arg: QuizActionType) => void;
+  quizDispatch: (arg0: QuizActionType) => void;
   categoriesData: Array<CategoryType>;
   rulesData: Array<RulesType>;
 }

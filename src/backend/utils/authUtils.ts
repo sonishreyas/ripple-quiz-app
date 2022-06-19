@@ -6,8 +6,7 @@ import { UserType } from "types";
 export const requiresAuth = function (this: any, request: any) {
 	const encodedToken : any = request.requestHeaders.authorization;
 	const decodedToken: any = jwt_decode(
-		encodedToken,
-		process.env.REACT_APP_JWT_SECRET
+		encodedToken
 	);
 	if (decodedToken) {
 		const user : UserType = this.db.users.findBy({ email: decodedToken.email });

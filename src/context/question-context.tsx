@@ -6,7 +6,7 @@ const defaultQuestionState: QuestionState = {
 	questions: {},
 	score: 0,
 };
-const QuestionContext = createContext<QuestionCtxType | null>(null);
+const QuestionContext = createContext({} as QuestionCtxType);
 
 const QuestionProvider = ({ children }: {children: React.ReactNode}) => {
 	const [questionState, questionDispatch] = useReducer(

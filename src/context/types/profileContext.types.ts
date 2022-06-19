@@ -5,6 +5,6 @@ export type AvatarDataType = {
 
 export type ProfileCtxType = {
   profileActiveTab: string;
-  setProfileActiveTab: Function;
-  avatarsData:  Array<AvatarDataType> | [];
+  setProfileActiveTab: any;
+  avatarsData:  Array<AvatarDataType>;
 }

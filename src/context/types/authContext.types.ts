@@ -4,7 +4,7 @@ export type AuthState = {
 	lastName: string;
 	avatar: string;
 	email: string;
-} | {};
+};
 
 export type AuthActionType =
 	| {
@@ -33,7 +33,7 @@ export type AuthActionType =
 	  }
 	| {
 			type: "UPDATE_USER";
-			payload: AuthState;
+			payload: AuthState | {};
 	  }
 	| {
 			type: "LOGOUT";
@@ -41,7 +41,7 @@ export type AuthActionType =
 
 export type AuthCtxType = {
 	authState: AuthState;
-	authDispatch: (arg: AuthActionType) => void;
+	authDispatch: (arg0: AuthActionType) => void;
 };
 
 export type LoginState = {
@@ -82,7 +82,7 @@ export type LoginActionType =
 
 export type LoginCtxType = {
   loginState: LoginState;
-  loginDispatch: (arg: LoginActionType) => void;
+  loginDispatch: (arg0: LoginActionType) => void;
 };
 
 export type RegisterState = {
@@ -145,5 +145,5 @@ export type RegisterActionType =
 
 export type RegisterCtxType = {
   registerState: RegisterState;
-  registerDispatch: (arg: RegisterActionType) => void
+  registerDispatch: (arg0: RegisterActionType) => void
 };

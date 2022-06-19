@@ -5,7 +5,16 @@ const ResultContent = () => {
 	const { quizState } = useQuiz();
 	const quizData = quizState.quizzes.length
 		? quizState.quizzes.filter((item: QuizDataType) => item._id === questionState.quizId)[0]
-		: {};
+		: {
+				_id: "",
+				title: "",
+				totalScore: 0,
+				description: "",
+				imageURL: "",
+				mcqs: [],
+				catergoryName: "",
+				createdBy: "",
+		  };
 	const navigate = useNavigate();
 	const handleRedirect = () => {
 		questionDispatch({ type: "RESET" });
