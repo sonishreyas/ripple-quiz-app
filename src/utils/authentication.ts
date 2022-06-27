@@ -22,7 +22,6 @@ const loginHandler = (e: FormEvent, location: any, navigate: any, loginState: Lo
 				lastName: response.data.foundUser.lastName,
 				email: response.data.foundUser.email,
 				avatar: response.data.foundUser.avatar,
-				_id: response.data.foundUser._id,
 			};
 			authDispatch({
 				type: "UPDATE_USER",
@@ -128,7 +127,7 @@ const setValueHandler = (e: React.ChangeEvent<HTMLInputElement>, field: string, 
 const setTestHandler = (loginDispatch: any) =>
 	loginDispatch({
 		type: "TEST_CREDENTIAL",
-		payload: { email: "test@gmail.com", password: "test123" },
+		payload: { email: "sonishreyas10@gmail.com", password: "Shreyas" },
 	});
 
 const setFocusHandler = (field: string, value: boolean, type: string, loginDispatch: any, focusReset: any) => {

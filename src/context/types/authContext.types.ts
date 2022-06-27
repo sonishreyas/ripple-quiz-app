@@ -77,6 +77,10 @@ export type LoginActionType =
     }
   }
   | {
+    type: "UPDATE_USER";
+    payload: AuthState;
+  }
+  | {
     type: "RESET";
   }
 

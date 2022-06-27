@@ -8,22 +8,11 @@ import { formatDate } from "../utils/authUtils";
 
 export const users: Array<UserType> = [
 	{
-		_id: "1007",
-		firstName: "Adarsh",
-		lastName: "Balika",
-		email: "admin@gmail.com",
-		password: "123456",
-		avatar:
-			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
-		createdAt: formatDate(),
-		updatedAt: formatDate(),
-	},
-	{
 		_id: "4ea212a8-c0d7-11ec-9d64-0242ac120002",
-		firstName: "test",
-		lastName: "test",
-		email: "test@gmail.com",
-		password: "test123",
+		firstName: "Shreyas",
+		lastName: "Soni",
+		email: "sonishreyas10@gmail.com",
+		password: "Shreyas",
 		avatar:
 			"https://raw.githubusercontent.com/sonishreyas/ripple-quiz-app/dev/src/backend/assets/avatars/1.jpg",
 		createdAt: formatDate(),

@@ -17,6 +17,8 @@ const loginReducer = (loginState: LoginState, action : LoginActionType): LoginSt
 				email: action.payload.email,
 				password: action.payload.password,
 			};
+		case "UPDATE_USER":
+			return { ...loginState, ...action.payload };
 		case "RESET":
 			return {
 				...loginState,

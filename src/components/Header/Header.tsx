@@ -22,6 +22,7 @@ const Header = () => {
 			},
 		});
 	}, [query]);
+
 	return (
 		<header className="header header-shadow flex-row justify-content-space-between align-center p-7">
 			<div className="brand-info flex-row justify-content-center align-center flex-gap-1 m-5">
