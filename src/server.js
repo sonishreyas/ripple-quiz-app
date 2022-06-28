@@ -9,12 +9,10 @@ import {
 	getCategoryHandler,
 } from "./backend/controllers/CategoryController";
 import {
-	addQuizHandler,
 	getAllQuizesHandler,
 	getSingleQuizHandler,
 	getSingleQuizQuestionAnswer,
 	postQuizResultHandler,
-	deleteQuizHandler,
 } from "./backend/controllers/QuizesController";
 import { editUserHandler } from "./backend/controllers/UserController";
 import { getAvatarsHandler } from "./backend/controllers/AvatarsController";
@@ -24,6 +22,7 @@ import { quizzes } from "./backend/db/quizzes";
 import { users } from "./backend/db/users";
 import { avatars } from "./backend/db/avatars";
 import { rules } from "./backend/db/rules";
+
 export function makeServer({ environment = "development" } = {}) {
 	return new Server({
 		serializers: {
@@ -45,7 +44,7 @@ export function makeServer({ environment = "development" } = {}) {
 		seeds(server) {
 			// disballing console logs from Mirage
 			server.logging = false;
-			quizzes.forEach((item) => server.create("quiz", item));
+			quizzes.forEach((item) => server.create("quiz", { ...item }));
 			avatars.forEach((item) => server.create("avatar", { ...item }));
 			rules.forEach((item) => server.create("rule", { ...item }));
 
@@ -92,9 +91,7 @@ export function makeServer({ environment = "development" } = {}) {
 			this.get("/categories/:categoryId", getCategoryHandler.bind(this));
 
 			// quizes routes (private)
-			this.post("/quizzes", addQuizHandler.bind(this));
 			this.post("/quizzes/result", postQuizResultHandler.bind(this));
-			this.delete("/quiz/:quizId", deleteQuizHandler.bind(this));
 		},
 	});
 }
